@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import LogoPonah from '../assets/LogoPonah.png'; // Import the new logo
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,9 +26,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
-              </div>
+              <img src={LogoPonah} alt="Logo PONAH" className="h-12 w-auto" />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">PONAH</h1>
                 <p className="text-sm text-gray-600">Plateforme des ONG Nationales</p>
