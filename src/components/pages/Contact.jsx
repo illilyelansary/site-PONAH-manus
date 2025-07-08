@@ -86,14 +86,6 @@ const Contact = () => {
   ];
 
   const quickLinks = [
-    {quickLinks.map((link, index) => (
-  <div key={index} className="quick-link-card">
-    <h3>{link.title}</h3>
-    <p>{link.description}</p>
-    <a href={link.url}>{link.action}</a>
-  </div>
-))}
-
     {
       title: 'Adhésion à la PONAH',
       description: 'Informations sur le processus d\'adhésion pour les ONG nationales',
