@@ -4,6 +4,9 @@ import { Download, FileText, Calendar, Search, Filter, ExternalLink } from 'luci
 const Publications = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [showAll, setShowAll] = useState(false);
+
+  const defaultLimit = 6; // nombre par défaut affiché sans clic sur "Tout afficher"
 
   const publications = [
     {
@@ -111,16 +114,10 @@ const Publications = () => {
   ];
 
   const stats = [
-    { number: publications.length, label: 'Publications disponibles' },
-    {
-      number: publications.reduce((sum, pub) => sum + pub.pages, 0),
-      label: 'Pages au total'
-    },
-    {
-      number: new Set(publications.map(pub => pub.category)).size,
-      label: 'Catégories distinctes'
-    },
-    { number: '2024', label: 'Dernière mise à jour' }
+    { number: '8+', label: 'Publications disponibles' },
+    { number: '200+', label: 'Pages de contenu' },
+    { number: '4', label: 'Catégories principales' },
+    { number: '2024', label: 'Année de création' }
   ];
 
   const filteredPublications = publications.filter(pub => {
@@ -130,145 +127,162 @@ const Publications = () => {
     return matchesSearch && matchesCategory;
   });
 
+  const visiblePublications = showAll ? filteredPublications : filteredPublications.slice(0, defaultLimit);
+
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Publications</h1>
-          <p className="text-lg text-gray-600">Accédez à nos documents clés et ressources téléchargeables</p>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Publications & Ressources</h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+              Accédez à nos rapports, études, guides et documents officiels
+            </p>
+          </div>
         </div>
+      </section>
 
-        {/* Statistiques */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
-          {stats.map((item, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow">
-              <div className="text-3xl font-bold text-primary mb-2">{item.number}</div>
-              <div className="text-gray-600 text-sm">{item.label}</div>
+      {/* Stats Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            {stats.map((stat, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-gray-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Publications en vedette */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Publications en Vedette</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Nos documents les plus importants et récents
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {publications.filter(pub => pub.featured).map(pub => (
+              <div key={pub.id} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                    {categories.find(cat => cat.id === pub.category)?.label}
+                  </span>
+                  <span className="text-sm text-gray-500">{pub.date}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{pub.title}</h3>
+                <p className="text-gray-600 mb-4 line-clamp-3">{pub.description}</p>
+                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                  <span>{pub.pages} pages</span>
+                  <span>{pub.size}</span>
+                  <span>{pub.type}</span>
+                </div>
+                <div className="flex space-x-3">
+                  <a href={pub.downloadUrl} download className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 text-sm flex items-center justify-center">
+                    <Download className="w-4 h-4 mr-2" /> Télécharger
+                  </a>
+                  <a href={pub.downloadUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 text-sm flex items-center">
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Liste complète filtrable avec bouton "Tout afficher" */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Toutes nos Publications</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Explorez notre bibliothèque complète de documents et ressources
+            </p>
+          </div>
+
+          {/* Filtres */}
+          <div className="bg-white p-6 rounded-lg shadow-md mb-8 flex flex-col lg:flex-row gap-4">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-2.5 text-gray-400" size={20} />
+              <input
+                type="text"
+                placeholder="Rechercher dans les publications..."
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
-          ))}
-        </div>
-
-        {/* Publications en vedette */}
-        {publications.some(pub => pub.featured) && (
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">📌 Publications en vedette</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {publications
-                .filter(pub => pub.featured)
-                .map(pub => (
-                  <div key={pub.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border-l-4 border-primary">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
-                        {categories.find(cat => cat.id === pub.category)?.label || 'Autre'}
-                      </span>
-                      <span className="text-sm text-gray-500 flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" /> {pub.date}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{pub.title}</h3>
-                    <p className="text-sm text-gray-600 mb-3">{pub.description}</p>
-                    <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
-                      <span><FileText className="inline w-4 h-4 mr-1" />{pub.pages} pages</span>
-                      <span>{pub.size}</span>
-                      <span>{pub.type}</span>
-                    </div>
-                    <div className="flex gap-3">
-                      <a
-                        href={pub.downloadUrl}
-                        download
-                        className="flex items-center px-4 py-2 bg-primary text-white rounded-lg text-sm hover:bg-primary/90"
-                      >
-                        <Download className="w-4 h-4 mr-2" /> Télécharger
-                      </a>
-                      <a
-                        href={pub.downloadUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" /> Aperçu
-                      </a>
-                    </div>
-                  </div>
+            <div className="relative lg:w-64">
+              <Filter className="absolute left-3 top-2.5 text-gray-400" size={20} />
+              <select
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary appearance-none"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                {categories.map((cat) => (
+                  <option key={cat.id} value={cat.id}>{cat.label}</option>
                 ))}
+              </select>
             </div>
           </div>
-        )}
 
-        {/* Filtres */}
-        <div className="mb-8 flex flex-col md:flex-row gap-4 items-center">
-          <div className="relative w-full md:w-1/2">
-            <Search className="absolute left-3 top-2.5 text-gray-400" size={20} />
-            <input
-              type="text"
-              placeholder="Rechercher une publication..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+          {/* Grille des publications filtrées */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {visiblePublications.map((pub) => (
+              <div key={pub.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
+                    {categories.find(cat => cat.id === pub.category)?.label}
+                  </span>
+                  <span className="text-sm text-gray-500 flex items-center">
+                    <Calendar className="w-4 h-4 mr-1" /> {pub.date}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{pub.title}</h3>
+                <p className="text-sm text-gray-600 mb-3">{pub.description}</p>
+                <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
+                  <span><FileText className="inline w-4 h-4 mr-1" />{pub.pages} pages</span>
+                  <span>{pub.size}</span>
+                  <span>{pub.type}</span>
+                </div>
+                <div className="flex gap-3">
+                  <a href={pub.downloadUrl} download className="flex items-center px-4 py-2 bg-primary text-white rounded-lg text-sm hover:bg-primary/90">
+                    <Download className="w-4 h-4 mr-2" /> Télécharger
+                  </a>
+                  <a href={pub.downloadUrl} target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50">
+                    <ExternalLink className="w-4 h-4 mr-2" /> Aperçu
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="relative w-full md:w-1/3">
-            <Filter className="absolute left-3 top-2.5 text-gray-400" size={20} />
-            <select
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary appearance-none"
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-            >
-              {categories.map(cat => (
-                <option key={cat.id} value={cat.id}>{cat.label}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        {/* Toutes les publications filtrées */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPublications.map(pub => (
-            <div key={pub.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
-                  {categories.find(cat => cat.id === pub.category)?.label || 'Autre'}
-                </span>
-                <span className="text-sm text-gray-500 flex items-center">
-                  <Calendar className="w-4 h-4 mr-1" /> {pub.date}
-                </span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{pub.title}</h3>
-              <p className="text-sm text-gray-600 mb-3">{pub.description}</p>
-              <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
-                <span><FileText className="inline w-4 h-4 mr-1" />{pub.pages} pages</span>
-                <span>{pub.size}</span>
-                <span>{pub.type}</span>
-              </div>
-              <div className="flex gap-3">
-                <a
-                  href={pub.downloadUrl}
-                  download
-                  className="flex items-center px-4 py-2 bg-primary text-white rounded-lg text-sm hover:bg-primary/90"
-                >
-                  <Download className="w-4 h-4 mr-2" /> Télécharger
-                </a>
-                <a
-                  href={pub.downloadUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" /> Aperçu
-                </a>
-              </div>
+          {/* Bouton Tout afficher / Réduire */}
+          {filteredPublications.length > defaultLimit && (
+            <div className="text-center">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="text-primary hover:underline font-medium text-sm"
+              >
+                {showAll ? 'Réduire la liste' : 'Tout afficher'}
+              </button>
             </div>
-          ))}
-        </div>
+          )}
 
-        {filteredPublications.length === 0 && (
-          <div className="text-center text-gray-500 mt-12">
-            <p>Aucune publication trouvée pour votre recherche.</p>
-          </div>
-        )}
-      </div>
+          {/* Aucun résultat */}
+          {filteredPublications.length === 0 && (
+            <div className="text-center text-gray-500 mt-12">
+              <p>Aucune publication trouvée pour votre recherche.</p>
+            </div>
+          )}
+        </div>
+      </section>
     </div>
   );
 };
