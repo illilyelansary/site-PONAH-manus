@@ -59,7 +59,7 @@ const Contact = () => {
       title: 'Adhésion à la PONAH',
       description: 'Informations sur le processus d\'adhésion pour les ONG nationales',
       action: 'Voir les critères',
-      url: '/nos-membres'
+      url: '/members'
     },
     {
       title: 'Partenariats',
