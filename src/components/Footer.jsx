@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">import LogoPonah from '../assets/LogoPonah.png'; // Import the new logo</span>
+                <span className="text-white font-bold text-xl">P</span>
               </div>
               <div>
                 <h3 className="text-xl font-bold">PONAH</h3>
