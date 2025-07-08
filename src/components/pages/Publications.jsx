@@ -15,7 +15,7 @@ const Publications = () => {
       type: 'PDF',
       size: '2.5 MB',
       pages: 8,
-      downloadUrl: '#',
+      downloadUrl: 'Brochure PONA.pdf',
       featured: true
     },
     {
