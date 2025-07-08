@@ -110,9 +110,22 @@ const Publications = () => {
     { id: 'communique', label: 'Communiqués' }
   ];
 
+  const stats = [
+    { number: publications.length, label: 'Publications disponibles' },
+    {
+      number: publications.reduce((sum, pub) => sum + pub.pages, 0),
+      label: 'Pages au total'
+    },
+    {
+      number: new Set(publications.map(pub => pub.category)).size,
+      label: 'Catégories distinctes'
+    },
+    { number: '2024', label: 'Dernière mise à jour' }
+  ];
+
   const filteredPublications = publications.filter(pub => {
     const matchesSearch = pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         pub.description.toLowerCase().includes(searchTerm.toLowerCase());
+      pub.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || pub.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -120,11 +133,70 @@ const Publications = () => {
   return (
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
+        {/* Hero */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Publications</h1>
           <p className="text-lg text-gray-600">Accédez à nos documents clés et ressources téléchargeables</p>
         </div>
 
+        {/* Statistiques */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
+          {stats.map((item, index) => (
+            <div key={index} className="bg-white p-6 rounded-lg shadow">
+              <div className="text-3xl font-bold text-primary mb-2">{item.number}</div>
+              <div className="text-gray-600 text-sm">{item.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Publications en vedette */}
+        {publications.some(pub => pub.featured) && (
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">📌 Publications en vedette</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {publications
+                .filter(pub => pub.featured)
+                .map(pub => (
+                  <div key={pub.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border-l-4 border-primary">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
+                        {categories.find(cat => cat.id === pub.category)?.label || 'Autre'}
+                      </span>
+                      <span className="text-sm text-gray-500 flex items-center">
+                        <Calendar className="w-4 h-4 mr-1" /> {pub.date}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{pub.title}</h3>
+                    <p className="text-sm text-gray-600 mb-3">{pub.description}</p>
+                    <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
+                      <span><FileText className="inline w-4 h-4 mr-1" />{pub.pages} pages</span>
+                      <span>{pub.size}</span>
+                      <span>{pub.type}</span>
+                    </div>
+                    <div className="flex gap-3">
+                      <a
+                        href={pub.downloadUrl}
+                        download
+                        className="flex items-center px-4 py-2 bg-primary text-white rounded-lg text-sm hover:bg-primary/90"
+                      >
+                        <Download className="w-4 h-4 mr-2" /> Télécharger
+                      </a>
+                      <a
+                        href={pub.downloadUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" /> Aperçu
+                      </a>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
+
+        {/* Filtres */}
         <div className="mb-8 flex flex-col md:flex-row gap-4 items-center">
           <div className="relative w-full md:w-1/2">
             <Search className="absolute left-3 top-2.5 text-gray-400" size={20} />
@@ -151,6 +223,7 @@ const Publications = () => {
           </div>
         </div>
 
+        {/* Toutes les publications filtrées */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPublications.map(pub => (
             <div key={pub.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
