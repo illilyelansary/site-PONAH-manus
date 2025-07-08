@@ -15,7 +15,7 @@ const Publications = () => {
       type: 'PDF',
       size: '2.5 MB',
       pages: 8,
-      downloadUrl: 'src/assets/Brochure PONA.pdf',
+      downloadUrl: '/documents/Brochure PONA.pdf',
       featured: true
     },
     {
@@ -27,7 +27,7 @@ const Publications = () => {
       type: 'PDF',
       size: '4.2 MB',
       pages: 45,
-      downloadUrl: '#',
+      downloadUrl: '/documents/Rapport Annuel 2024.pdf',
       featured: true
     },
     {
@@ -39,7 +39,7 @@ const Publications = () => {
       type: 'PDF',
       size: '1.8 MB',
       pages: 15,
-      downloadUrl: '#'
+      downloadUrl: '/documents/Document Lobby Tour.pdf'
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ const Publications = () => {
       type: 'PDF',
       size: '5.1 MB',
       pages: 62,
-      downloadUrl: '#',
+      downloadUrl: '/documents/Etude Baromètre Localisation.pdf',
       featured: true
     },
     {
@@ -62,7 +62,7 @@ const Publications = () => {
       type: 'PDF',
       size: '1.2 MB',
       pages: 18,
-      downloadUrl: '#'
+      downloadUrl: '/documents/Statuts et Règlement Intérieur.pdf'
     },
     {
       id: 6,
@@ -73,7 +73,7 @@ const Publications = () => {
       type: 'PDF',
       size: '0.8 MB',
       pages: 6,
-      downloadUrl: '#'
+      downloadUrl: '/documents/Charte des Membres.pdf'
     },
     {
       id: 7,
@@ -84,7 +84,7 @@ const Publications = () => {
       type: 'PDF',
       size: '3.2 MB',
       pages: 28,
-      downloadUrl: '#'
+      downloadUrl: '/documents/Guide Gestion Risques Sécurité.pdf'
     },
     {
       id: 8,
@@ -95,7 +95,7 @@ const Publications = () => {
       type: 'PDF',
       size: '0.5 MB',
       pages: 3,
-      downloadUrl: '#'
+      downloadUrl: '/documents/Communiqué Résultats Baromètre.pdf'
     }
   ];
 
@@ -117,213 +117,87 @@ const Publications = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const featuredPublications = publications.filter(pub => pub.featured);
-
-  const stats = [
-    { number: '8+', label: 'Publications disponibles' },
-    { number: '200+', label: 'Pages de contenu' },
-    { number: '4', label: 'Catégories principales' },
-    { number: '2024', label: 'Année de création' }
-  ];
-
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Publications & Ressources</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              Accédez à nos rapports, études, guides et documents officiels
-            </p>
-          </div>
+    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Publications</h1>
+          <p className="text-lg text-gray-600">Accédez à nos documents clés et ressources téléchargeables</p>
         </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Publications en vedette */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Publications en Vedette</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Nos documents les plus importants et récents
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredPublications.map((pub) => (
-              <div key={pub.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                      {categories.find(cat => cat.id === pub.category)?.label}
-                    </span>
-                    <span className="text-sm text-gray-500">{pub.date}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{pub.title}</h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3">{pub.description}</p>
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                    <span>{pub.pages} pages</span>
-                    <span>{pub.size}</span>
-                    <span>{pub.type}</span>
-                  </div>
-                  <div className="flex space-x-3">
-                    <button className="flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm flex-1 justify-center">
-                      <Download className="w-4 h-4 mr-2" />
-                      Télécharger
-                    </button>
-                    <button className="flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm">
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Toutes les publications */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Toutes nos Publications</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explorez notre bibliothèque complète de documents et ressources
-            </p>
+        <div className="mb-8 flex flex-col md:flex-row gap-4 items-center">
+          <div className="relative w-full md:w-1/2">
+            <Search className="absolute left-3 top-2.5 text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder="Rechercher une publication..."
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
 
-          {/* Filtres et recherche */}
-          <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-            <div className="flex flex-col lg:flex-row gap-4">
-              {/* Barre de recherche */}
-              <div className="flex-1">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                  <input
-                    type="text"
-                    placeholder="Rechercher dans les publications..."
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              {/* Filtre par catégorie */}
-              <div className="lg:w-64">
-                <div className="relative">
-                  <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                  <select
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent appearance-none bg-white"
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                  >
-                    {categories.map((category) => (
-                      <option key={category.id} value={category.id}>
-                        {category.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Liste des publications */}
-          <div className="space-y-6">
-            {filteredPublications.map((pub) => (
-              <div key={pub.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                  <div className="flex-1 mb-4 lg:mb-0">
-                    <div className="flex items-center space-x-4 mb-2">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        {categories.find(cat => cat.id === pub.category)?.label}
-                      </span>
-                      <span className="flex items-center text-sm text-gray-500">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {pub.date}
-                      </span>
-                      {pub.featured && (
-                        <span className="inline-block px-2 py-1 rounded text-xs font-medium bg-secondary/10 text-secondary">
-                          En vedette
-                        </span>
-                      )}
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{pub.title}</h3>
-                    <p className="text-gray-600 mb-3">{pub.description}</p>
-                    <div className="flex items-center space-x-4 text-sm text-gray-500">
-                      <span className="flex items-center">
-                        <FileText className="w-4 h-4 mr-1" />
-                        {pub.pages} pages
-                      </span>
-                      <span>{pub.size}</span>
-                      <span>{pub.type}</span>
-                    </div>
-                  </div>
-                  <div className="flex space-x-3 lg:ml-6">
-                    <button className="flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm">
-                      <Download className="w-4 h-4 mr-2" />
-                      Télécharger
-                    </button>
-                    <button className="flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Aperçu
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {filteredPublications.length === 0 && (
-            <div className="text-center py-12">
-              <FileText className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Aucune publication trouvée</h3>
-              <p className="text-gray-500">
-                Essayez de modifier vos critères de recherche ou de filtrage.
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Section d'appel à l'action */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-primary/5 p-8 rounded-lg text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Besoin d'informations supplémentaires ?
-            </h2>
-            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-              Contactez-nous pour obtenir des documents spécifiques ou des informations complémentaires 
-              sur nos activités et programmes.
-            </p>
-            <a
-              href="mailto:ponah.mali@gmail.com"
-              className="inline-flex items-center bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+          <div className="relative w-full md:w-1/3">
+            <Filter className="absolute left-3 top-2.5 text-gray-400" size={20} />
+            <select
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary appearance-none"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
             >
-              Nous contacter
-            </a>
+              {categories.map(cat => (
+                <option key={cat.id} value={cat.id}>{cat.label}</option>
+              ))}
+            </select>
           </div>
         </div>
-      </section>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredPublications.map(pub => (
+            <div key={pub.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
+                  {categories.find(cat => cat.id === pub.category)?.label || 'Autre'}
+                </span>
+                <span className="text-sm text-gray-500 flex items-center">
+                  <Calendar className="w-4 h-4 mr-1" /> {pub.date}
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{pub.title}</h3>
+              <p className="text-sm text-gray-600 mb-3">{pub.description}</p>
+              <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
+                <span><FileText className="inline w-4 h-4 mr-1" />{pub.pages} pages</span>
+                <span>{pub.size}</span>
+                <span>{pub.type}</span>
+              </div>
+              <div className="flex gap-3">
+                <a
+                  href={pub.downloadUrl}
+                  download
+                  className="flex items-center px-4 py-2 bg-primary text-white rounded-lg text-sm hover:bg-primary/90"
+                >
+                  <Download className="w-4 h-4 mr-2" /> Télécharger
+                </a>
+                <a
+                  href={pub.downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm hover:bg-gray-50"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" /> Aperçu
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {filteredPublications.length === 0 && (
+          <div className="text-center text-gray-500 mt-12">
+            <p>Aucune publication trouvée pour votre recherche.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 export default Publications;
-
