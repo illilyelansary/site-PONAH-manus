@@ -29,7 +29,7 @@ Une feuille de route a été élaborée pour guider l'élaboration de la straté
       category: 'strategie',
       readTime: '5 min',
       featured: true,
-      image: '/api/placeholder/600/300'
+      image: '/images/news1-new.jpg'
     },
     {
       id: 2,
