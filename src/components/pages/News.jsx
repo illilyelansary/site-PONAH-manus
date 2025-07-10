@@ -193,6 +193,11 @@ Aujourd'hui, la PONAH regroupe plus de 130 ONG nationales et locales, couvrant l
     alt={article.title}
     className="w-full h-full object-cover"
   />
+                  <img
+  src={article.image || '/images/default.jpg'}
+  alt={article.title}
+  className="w-full h-full object-cover"
+/>
 </div>
                 <div className="p-6">
                   <div className="flex items-center space-x-4 mb-3">
