@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Users, X } from 'lucide-react';
+import { Search, Users, FileText, CreditCard, CheckCircle, X } from 'lucide-react';
 import membersData from '../../data/membersData';
 
 const Members = () => {
@@ -7,72 +7,87 @@ const Members = () => {
   const [selectedMember, setSelectedMember] = useState(null);
 
   const filteredMembers = membersData.filter(member =>
-    member.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    member.acronyme.toLowerCase().includes(searchTerm.toLowerCase())
+    member.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="min-h-screen">
-      {/* Section titre */}
+      {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Nos Membres</h1>
-          <p className="text-xl md:text-2xl">Découvrez les ONG membres de la PONAH</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nos Membres</h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            Plus de 130 ONG nationales et locales unies pour l'action humanitaire au Mali
+          </p>
         </div>
       </section>
 
       {/* Barre de recherche */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-xl mx-auto px-4">
-          <div className="relative">
-            <Search className="absolute left-3 top-3 text-gray-400" size={20} />
-            <input
-              type="text"
-              placeholder="Rechercher une ONG..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Tous nos Membres</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Découvrez toutes les organisations qui composent notre plateforme
+            </p>
           </div>
+
+          <div className="max-w-md mx-auto mb-8">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <input
+                type="text"
+                placeholder="Rechercher une ONG..."
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {filteredMembers.map((member, index) => (
+              <div
+                key={index}
+                className="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md cursor-pointer"
+                onClick={() => setSelectedMember(member)}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Users className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-medium text-gray-900 text-sm">{member.name}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {filteredMembers.length === 0 && (
+            <div className="text-center py-8">
+              <p className="text-gray-500">Aucune ONG trouvée pour "{searchTerm}"</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Liste des membres */}
-      <section className="pb-20 px-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredMembers.map((member, index) => (
-          <div
-            key={index}
-            className="bg-white p-6 rounded-lg shadow cursor-pointer border hover:shadow-md"
-            onClick={() => setSelectedMember(member)}
-          >
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                <Users className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="font-medium text-gray-900 text-sm">{member.nom}</h3>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      {/* Fenêtre modale */}
+      {/* Modal */}
       {selectedMember && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg max-w-xl w-full p-6 relative">
+        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
+          <div className="bg-white w-full max-w-lg mx-auto rounded-lg shadow-lg relative p-6">
             <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-red-500"
               onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-red-600"
             >
               <X size={24} />
             </button>
-            <h2 className="text-2xl font-bold text-primary mb-4">{selectedMember.nom}</h2>
-            <p><strong>Acronyme:</strong> {selectedMember.acronyme}</p>
-            <p><strong>Date de création:</strong> {selectedMember.date_creation}</p>
-            <p><strong>Numéro d'accord cadre:</strong> {selectedMember.accord_cadre}</p>
-            <p><strong>Adresse:</strong> {selectedMember.adresse}</p>
-            <p><strong>Zones d'intervention:</strong> {selectedMember.zones}</p>
-            <p><strong>Domaines d'intervention:</strong> {selectedMember.domaines}</p>
-            <p><strong>Responsable:</strong> {selectedMember.responsable}</p>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">{selectedMember.fullName}</h2>
+            <div className="space-y-2 text-sm text-gray-700">
+              <p><strong>Date de création:</strong> {selectedMember.dateCreation}</p>
+              <p><strong>N° Accord Cadre:</strong> {selectedMember.accordCadre}</p>
+              <p><strong>Zone d’intervention:</strong> {selectedMember.zoneIntervention}</p>
+              <p><strong>Adresse:</strong> {selectedMember.adresse}</p>
+              <p><strong>Responsable:</strong> {selectedMember.responsable}</p>
+            </div>
           </div>
         </div>
       )}
