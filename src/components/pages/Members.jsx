@@ -140,6 +140,29 @@ const Members = () => {
           </div>
         </div>
       )}
+
+      {/* Section Devenir membre */}
+      <section className="py-20 bg-primary/5 mt-16">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Rejoindre la PONAH</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Toute ONG nationale légalement constituée, intervenant dans le domaine humanitaire au Mali,
+            et adhérant aux statuts et règlement intérieur de la PONAH, peut faire une demande d’adhésion.
+          </p>
+          <ul className="text-left max-w-2xl mx-auto text-gray-700 mb-6 list-disc list-inside">
+            <li>Lettre de demande adressée au Président</li>
+            <li>Copie de l’accord cadre</li>
+            <li>Paiement de la cotisation annuelle et frais d’adhésion</li>
+            <li>Engagement à respecter la charte des membres</li>
+          </ul>
+          <a
+            href="mailto:ponah.mali@gmail.com"
+            className="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium"
+          >
+            Demander l'adhésion
+          </a>
+        </div>
+      </section>
     </div>
   );
 };
