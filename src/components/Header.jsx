@@ -9,11 +9,11 @@ const Header = () => {
 
   const navigation = [
     { name: 'Accueil', href: '/' },
-    { name: 'À Propos', href: '/about' },
-    { name: 'Nos Membres', href: '/members' },
-    { name: 'Nos Activités', href: '/activities' },
+    { name: 'À Propos', href: '/apropos' },
+    { name: 'Nos Membres', href: '/membres' },
+    { name: 'Nos Activités', href: '/activites' },
     { name: 'Publications', href: '/publications' },
-    { name: 'Actualités', href: '/news' },
+    { name: 'Actualités', href: '/actualites' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -89,4 +89,3 @@ const Header = () => {
 };
 
 export default Header;
-
