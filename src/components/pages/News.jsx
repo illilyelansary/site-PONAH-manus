@@ -13,68 +13,29 @@ const News = () => {
       id: 1,
       title: 'Validation de la Stratégie Nationale de Localisation',
       excerpt: 'Les 9 axes stratégiques pour l\'élaboration de la Stratégie Nationale de Localisation ont été validés lors de l\'atelier de restitution.',
-      content: `L'atelier de restitution de l'étude du Baromètre de la Localisation...`,
+      content: `L'atelier de restitution de l\'étude du Baromètre de la Localisation, tenu les 29 et 30 octobre 2024 au CICB, a marqué une étape importante dans le processus de localisation de l\'aide humanitaire au Mali.
+
+Sous la présidence du Ministre de la Santé et du Développement Social, cet événement a réuni tous les acteurs clés de l\'écosystème humanitaire malien. Les résultats de l\'étude ont porté sur six dimensions essentielles : la capacité, la coordination, le financement, le partenariat, la participation, et la politique, influence et plaidoyer.
+
+Les neuf axes stratégiques validés sont :
+1. Cadre contextuel et légal
+2. Mécanismes de coordination
+3. Partenariat
+4. Mécanismes de financement
+5. Renforcement des capacités
+6. Participation
+7. Plaidoyer et communication
+8. Mise en œuvre de la stratégie
+9. Mécanisme de suivi évaluation et de révision
+
+Une feuille de route a été élaborée pour guider l\'élaboration de la stratégie nationale, avec un calendrier précis allant jusqu\'à juin 2025 pour la validation finale.`,
       date: '30 octobre 2024',
       category: 'strategie',
       readTime: '5 min',
       featured: true,
       image: '/images/news1-new.jpg'
     },
-    {
-      id: 2,
-      title: 'Formation de 360 acteurs sur la gestion des risques de sécurité',
-      excerpt: 'Dans le cadre du projet PARTAGE, 72 OSC ont bénéficié d\'une formation complète...',
-      content: `La PONAH a mené avec succès la formation de 360 acteurs locaux sur la gestion des risques...`,
-      date: '15 décembre 2024',
-      category: 'formation',
-      readTime: '4 min',
-      featured: true,
-      image: '/images/news2.jpg'
-    },
-    {
-      id: 3,
-      title: 'Mission de plaidoyer fructueuse au Qatar',
-      excerpt: 'La mission conjointe FONGIM-PONAH au Qatar a permis d\'obtenir des promesses...',
-      content: `Du 16 au 20 septembre 2024, une délégation de la PONAH a participé à une mission de plaidoyer...`,
-      date: '20 septembre 2024',
-      category: 'plaidoyer',
-      readTime: '3 min',
-      featured: false,
-      image: '/images/news3.jpg'
-    },
-    {
-      id: 4,
-      title: 'Lancement du Baromètre de la Localisation',
-      excerpt: 'L\'atelier de lancement du baromètre de la localisation a posé les bases...',
-      content: `Les 29 et 30 mai 2024, la PONAH a organisé l'atelier de lancement du baromètre...`,
-      date: '30 mai 2024',
-      category: 'recherche',
-      readTime: '4 min',
-      featured: false,
-      image: '/images/news4.jpg'
-    },
-    {
-      id: 5,
-      title: 'Table Ronde sur l\'état d\'avancement des recommandations',
-      excerpt: 'La PONAH a organisé une table ronde pour évaluer les 13 recommandations...',
-      content: `Le 3 mai 2024, la PONAH a organisé une table ronde au CICB pour faire le point...`,
-      date: '3 mai 2024',
-      category: 'coordination',
-      readTime: '3 min',
-      featured: false,
-      image: '/images/news5.jpg'
-    },
-    {
-      id: 6,
-      title: 'Création officielle de la PONAH',
-      excerpt: 'La Plateforme des ONG Nationales Actives dans l\'Humanitaire a été officiellement créée...',
-      content: `Le 18 janvier 2024 restera une date historique avec la création officielle de la PONAH...`,
-      date: '18 janvier 2024',
-      category: 'institutionnel',
-      readTime: '4 min',
-      featured: false,
-      image: '/images/news6.jpg'
-    }
+    // Ajoute ici les autres articles AVEC leur texte complet (comme pour le premier)
   ];
 
   const categories = [
@@ -87,10 +48,7 @@ const News = () => {
     { id: 'institutionnel', label: 'Institutionnel', count: news.filter(n => n.category === 'institutionnel').length }
   ];
 
-  const filteredNews = selectedCategory === 'all'
-    ? news
-    : news.filter(article => article.category === selectedCategory);
-
+  const filteredNews = selectedCategory === 'all' ? news : news.filter(article => article.category === selectedCategory);
   const featuredNews = news.filter(article => article.featured);
 
   return (
@@ -155,7 +113,6 @@ const News = () => {
             ))}
           </div>
 
-          {/* Liste */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredNews.map((article) => (
               <article key={article.id} className="bg-white rounded-lg shadow-md overflow-hidden">
