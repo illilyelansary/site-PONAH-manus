@@ -112,6 +112,9 @@ const Members = () => {
               <p><strong>Zone d’intervention:</strong> {selectedMember.zoneIntervention}</p>
               <p><strong>Adresse:</strong> {selectedMember.adresse}</p>
               <p><strong>Responsable:</strong> {selectedMember.responsable}</p>
+              <p><strong>Fonction:</strong> {selectedMember.fonction}</p>
+              <p><strong>Téléphone:</strong> {selectedMember.telephone}</p>
+              <p><strong>Email:</strong> {selectedMember.email}</p>
             </div>
           </div>
         </div>
