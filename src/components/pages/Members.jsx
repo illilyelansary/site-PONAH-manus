@@ -11,7 +11,6 @@ const Members = () => {
   );
 
   const recentMembers = membersData.filter(member => member.recent === true);
-
   const totalMembers = membersData.length;
   const totalRecent = recentMembers.length;
   const uniqueZones = [...new Set(membersData.map(m => m.zoneIntervention).filter(Boolean))].length;
@@ -67,7 +66,7 @@ const Members = () => {
         </div>
       </section>
 
-      {/* Barre de recherche */}
+      {/* Barre de recherche + liste complète */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
@@ -117,7 +116,7 @@ const Members = () => {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Fenêtre Modale */}
       {selectedMember && (
         <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
           <div className="bg-white w-full max-w-lg mx-auto rounded-lg shadow-lg relative p-6">
