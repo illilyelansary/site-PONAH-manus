@@ -7,8 +7,10 @@ const Members = () => {
   const [selectedMember, setSelectedMember] = useState(null);
 
   const filteredMembers = membersData.filter(member =>
-    member.name.toLowerCase().includes(searchTerm.toLowerCase())
+    member.name && member.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const recentMembers = membersData.filter(member => member.recent === true);
 
   return (
     <div className="min-h-screen">
@@ -19,6 +21,27 @@ const Members = () => {
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
             Plus de 130 ONG nationales et locales unies pour l'action humanitaire au Mali
           </p>
+        </div>
+      </section>
+
+      {/* Nouveaux membres */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Nouveaux Membres 2024</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Nous accueillons avec fierté ces nouvelles organisations
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+          {recentMembers.map((member, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary cursor-pointer"
+              onClick={() => setSelectedMember(member)}
+            >
+              <h3 className="font-semibold text-gray-900 text-sm">{member.fullName}</h3>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -47,18 +70,20 @@ const Members = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filteredMembers.map((member, index) => (
-              <div
-                key={index}
-                className="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md cursor-pointer"
-                onClick={() => setSelectedMember(member)}
-              >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Users className="w-5 h-5 text-primary" />
+              member.name && (
+                <div
+                  key={index}
+                  className="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md cursor-pointer"
+                  onClick={() => setSelectedMember(member)}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Users className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="font-medium text-gray-900 text-sm">{member.name}</h3>
                   </div>
-                  <h3 className="font-medium text-gray-900 text-sm">{member.name}</h3>
                 </div>
-              </div>
+              )
             ))}
           </div>
 
