@@ -148,15 +148,13 @@ Aujourd'hui, la PONAH regroupe plus de 130 ONG nationales et locales, couvrant l
     }
     // Ajoute ici les autres articles AVEC leur texte complet (comme pour le premier)
   ];
-
   const categories = [
     { id: 'all', label: 'Toutes les actualités', count: news.length },
-    { id: 'strategie', label: 'Stratégie', count: news.filter(n => n.category === 'strategie').length },
-    { id: 'formation', label: 'Formation', count: news.filter(n => n.category === 'formation').length },
-    { id: 'plaidoyer', label: 'Plaidoyer', count: news.filter(n => n.category === 'plaidoyer').length },
-    { id: 'recherche', label: 'Recherche', count: news.filter(n => n.category === 'recherche').length },
-    { id: 'coordination', label: 'Coordination', count: news.filter(n => n.category === 'coordination').length },
-    { id: 'institutionnel', label: 'Institutionnel', count: news.filter(n => n.category === 'institutionnel').length }
+    ...Array.from(new Set(news.map(n => n.category))).map(cat => ({
+      id: cat,
+      label: cat.charAt(0).toUpperCase() + cat.slice(1),
+      count: news.filter(n => n.category === cat).length
+    }))
   ];
 
   const filteredNews = selectedCategory === 'all' ? news : news.filter(article => article.category === selectedCategory);
@@ -164,37 +162,35 @@ Aujourd'hui, la PONAH regroupe plus de 130 ONG nationales et locales, couvrant l
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">Actualités</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Suivez les dernières nouvelles et développements de la PONAH
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Actualités</h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto">Suivez les dernières nouvelles et développements de la PONAH</p>
         </div>
       </section>
 
-      {/* Featured Articles */}
+      {/* Articles en vedette */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">À la Une</h2>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">À la Une</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {featuredNews.map((article) => (
-              <article key={article.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="aspect-w-16 aspect-h-9">
+              <article key={article.id} className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+                <div className="h-60 w-full overflow-hidden">
                   <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
-                    <span className="flex items-center"><Tag className="w-4 h-4 mr-1" />{categories.find(c => c.id === article.category)?.label}</span>
-                    <span className="flex items-center"><Calendar className="w-4 h-4 mr-1" />{article.date}</span>
-                    <span className="flex items-center"><Clock className="w-4 h-4 mr-1" />{article.readTime}</span>
+                  <div className="flex items-center space-x-4 mb-3">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                      <Tag className="w-3 h-3 mr-1" />{categories.find(cat => cat.id === article.category)?.label}
+                    </span>
+                    <span className="flex items-center text-sm text-gray-500"><Calendar className="w-4 h-4 mr-1" />{article.date}</span>
+                    <span className="flex items-center text-sm text-gray-500"><Clock className="w-4 h-4 mr-1" />{article.readTime}</span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{article.title}</h3>
-                  <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                  <button onClick={() => openModal(article)} className="text-primary font-medium inline-flex items-center group">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{article.title}</h3>
+                  <p className="text-gray-600 mb-4 line-clamp-3">{article.excerpt}</p>
+                  <button onClick={() => openModal(article)} className="inline-flex items-center text-primary hover:text-primary/80 font-medium group">
                     Lire la suite <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -204,19 +200,18 @@ Aujourd'hui, la PONAH regroupe plus de 130 ONG nationales et locales, couvrant l
         </div>
       </section>
 
-      {/* Filtres */}
+      {/* Filtres par catégorie */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold">Toutes les Actualités</h2>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Toutes les Actualités</h2>
+
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category) => (
+            {categories.map(category => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium border transition ${
-                  selectedCategory === category.id ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-primary/10 hover:text-primary'
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  selectedCategory === category.id ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-primary/10 hover:text-primary border border-gray-300'
                 }`}
               >
                 {category.label} ({category.count})
@@ -226,48 +221,44 @@ Aujourd'hui, la PONAH regroupe plus de 130 ONG nationales et locales, couvrant l
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredNews.map((article) => (
-              <article key={article.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="aspect-w-16 aspect-h-9">
+              <article key={article.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                <div className="h-60 w-full overflow-hidden">
                   <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center space-x-3 text-xs text-gray-500 mb-2">
-                    <span>{categories.find(c => c.id === article.category)?.label}</span>
-                    <span>{article.date}</span>
+                  <div className="flex items-center space-x-3 mb-3">
+                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                      {categories.find(cat => cat.id === article.category)?.label}
+                    </span>
+                    <span className="text-xs text-gray-500">{article.date}</span>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{article.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{article.excerpt}</p>
-                  <div className="flex justify-between items-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">{article.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">{article.excerpt}</p>
+                  <div className="flex items-center justify-between">
                     <span className="flex items-center text-xs text-gray-500">
-                      <Clock className="w-3 h-3 mr-1" />
-                      {article.readTime}
+                      <Clock className="w-3 h-3 mr-1" />{article.readTime}
                     </span>
                     <button onClick={() => openModal(article)} className="text-primary hover:text-primary/80 text-sm font-medium">
-                      Lire la suite
+                      Lire plus
                     </button>
                   </div>
                 </div>
               </article>
             ))}
           </div>
-
-          {filteredNews.length === 0 && (
-            <div className="text-center mt-12 text-gray-500">Aucune actualité ne correspond à cette catégorie.</div>
-          )}
         </div>
       </section>
 
-      {/* Modale */}
+      {/* Modale de lecture */}
       {selectedArticle && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-          <div className="bg-white max-w-3xl w-full mx-4 rounded-lg overflow-auto max-h-[90vh] relative p-6">
-            <button onClick={closeModal} className="absolute top-3 right-3 text-gray-500 hover:text-black text-xl">×</button>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
+          <div className="bg-white rounded-lg max-w-3xl w-full overflow-y-auto max-h-[90vh] relative p-6">
+            <button onClick={closeModal} className="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+              <X className="w-5 h-5" />
+            </button>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">{selectedArticle.title}</h2>
+            <p className="text-sm text-gray-500 mb-2">{selectedArticle.date} · {selectedArticle.readTime}</p>
             <img src={selectedArticle.image} alt={selectedArticle.title} className="w-full h-64 object-cover rounded mb-4" />
-            <h2 className="text-2xl font-bold mb-2">{selectedArticle.title}</h2>
-            <p className="text-sm text-gray-500 mb-4">
-              <Calendar className="inline w-4 h-4 mr-1" /> {selectedArticle.date} &nbsp;&nbsp;
-              <Clock className="inline w-4 h-4 mr-1" /> {selectedArticle.readTime}
-            </p>
             <div className="text-gray-800 whitespace-pre-line">{selectedArticle.content}</div>
           </div>
         </div>
