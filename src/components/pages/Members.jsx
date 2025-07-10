@@ -12,6 +12,10 @@ const Members = () => {
 
   const recentMembers = membersData.filter(member => member.recent === true);
 
+  const totalMembers = membersData.length;
+  const totalRecent = recentMembers.length;
+  const uniqueZones = [...new Set(membersData.map(m => m.zoneIntervention).filter(Boolean))].length;
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -21,6 +25,24 @@ const Members = () => {
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
             Plus de 130 ONG nationales et locales unies pour l'action humanitaire au Mali
           </p>
+        </div>
+      </section>
+
+      {/* Statistiques */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="text-3xl font-bold text-primary mb-2">{totalMembers}</div>
+            <div className="text-gray-600">ONG Membres</div>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="text-3xl font-bold text-secondary mb-2">{uniqueZones}</div>
+            <div className="text-gray-600">Zones d'intervention</div>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="text-3xl font-bold text-accent mb-2">{totalRecent}</div>
+            <div className="text-gray-600">Nouveaux Membres 2024</div>
+          </div>
         </div>
       </section>
 
