@@ -6,7 +6,11 @@ const membersData = [
     "accordCadre": "0026/0286",
     "adresse": "Tombouctou, route de kabara ,face BIM S.A",
     "zoneIntervention": " Kidal, Menaka, Gao, Tombouctou, Mopti, Segou, Sikasso, Koulikoro et district de Bamako",
-    "responsable": "Wakina Elmehdi Ag "
+    "responsable": "Wakina Elmehdi Ag ",
+    "fonction": "Directeur de programmes",
+    "telephone": "76023225",
+    "email": "amss@ong-amss.org",
+    "recent": false
   },
   {
     "name": "ONG EFES N'TAMADRITE",
@@ -15,7 +19,11 @@ const membersData = [
     "accordCadre": "1364",
     "adresse": " Kidal",
     "zoneIntervention": "Kidal, Gao, Menaka",
-    "responsable": " Ag Acherif Mohamed Mahmoud"
+    "responsable": " Ag Acherif Mohamed Mahmoud",
+    "fonction": "Responsable",
+    "telephone": "73 10 93 64",
+    "email": "efesntamadrite@gmail.com",
+    "recent": false
   },
   {
     "name": "WALE",
@@ -24,7 +32,11 @@ const membersData = [
     "accordCadre": "AC  N° 0455/000909 du 15/04/2008, Avenant N° 3323/MATCL du 22/12/2010",
     "adresse": "Segou",
     "zoneIntervention": "Kayes, Ségou, Koulikoro, Sikasso, Tombouctou",
-    "responsable": "Soumontera  Aly"
+    "responsable": "Soumontera  Aly",
+    "fonction": "Coordinateur",
+    "telephone": "21321297",
+    "email": "wale@afribonemali.net",
+    "recent": false
   },
   {
     "name": "ASDEMIN",
@@ -33,7 +45,11 @@ const membersData = [
     "accordCadre": "1710",
     "adresse": "Etambar Kidal",
     "zoneIntervention": "Kidal, Gao, Tombouctou, Mopti, Segou, Menaka, Bamako",
-    "responsable": "Walet ouefan  Nassouroun"
+    "responsable": "Walet ouefan  Nassouroun",
+    "fonction": "Directrice executive ",
+    "telephone": "82959530",
+    "email": "nwouefane@gmail.com",
+    "recent": false
   },
   {
     "name": "AMAPROS",
@@ -42,7 +58,11 @@ const membersData = [
     "accordCadre": "Récépissé N° : 360 et l' accord cadre Numéro: 0160/00086",
     "adresse": "Bamako Sébénicoro à 500M du pont Woyowayanko en face de la Résidence de l'ancien Président IBK.",
     "zoneIntervention": "Koulikoro, Sikasso, Ségou, San, Mopti, Bandiagara et le District de Bamako",
-    "responsable": "Salikou Ouattara"
+    "responsable": "Salikou Ouattara",
+    "fonction": "Directeur Exécutif",
+    "telephone": " 76473304/66754338",
+    "email": "souattara1@gmail.com ",
+    "recent": false
   },
   {
     "name": "A C D",
@@ -51,7 +71,11 @@ const membersData = [
     "accordCadre": "0546/000118 du 13 mai 2008",
     "adresse": "Magnambougou Projet Rue 382 Porte 101 Bamako",
     "zoneIntervention": "Segou, San, Kita, Mopti",
-    "responsable": "Mossa Yattara"
+    "responsable": "Mossa Yattara",
+    "fonction": "Secrétaire permanent",
+    "telephone": "66767250",
+    "email": "acdorangemali@gmail.com",
+    "recent": false
   },
   {
     "name": "AJA Mali",
@@ -60,7 +84,11 @@ const membersData = [
     "accordCadre": "Accord cadre N°:462/460",
     "adresse": "Sébénikoro Wèrèda, près de la Pharmacie Kalifa Koné, Bamako",
     "zoneIntervention": "Koulikoro, Sikasso, Ségou",
-    "responsable": "Amadou Baba  Diarra"
+    "responsable": "Amadou Baba  Diarra",
+    "fonction": "Directeur",
+    "telephone": "79437928",
+    "email": "damadoubaba@yahoo.fr",
+    "recent": false
   },
   {
     "name": "ARDS-T",
@@ -69,7 +97,11 @@ const membersData = [
     "accordCadre": "0046/1676",
     "adresse": "Bamako",
     "zoneIntervention": "Tombouctou",
-    "responsable": "Ag Mohamed Fida "
+    "responsable": "Ag Mohamed Fida ",
+    "fonction": "Président",
+    "telephone": "76452798",
+    "email": "ongards2003@gmail.com",
+    "recent": false
   },
   {
     "name": "HONNEY-Mali",
@@ -78,7 +110,11 @@ const membersData = [
     "accordCadre": "Acord Cadre N°001834",
     "adresse": "Rharous ville, quartier Djoula",
     "zoneIntervention": "Tombouctou",
-    "responsable": "Ibrahim Younoussa Maiga"
+    "responsable": "Ibrahim Younoussa Maiga",
+    "fonction": "Directeur Executif",
+    "telephone": "73 46 39 90",
+    "email": "imaiga364@gmail.com",
+    "recent": false
   },
   {
     "name": "ASG ",
@@ -87,7 +123,11 @@ const membersData = [
     "accordCadre": "Accord – Cadre signé le 26 août 1993 sous le N°422 renouvelé le 09 janvier 2008 sous le N°0127/000422",
     "adresse": " Badalabougou SEMA GEXCO Rue 136 Porte 710;  ",
     "zoneIntervention": "Ségou",
-    "responsable": " Bouri Mahamane "
+    "responsable": " Bouri Mahamane ",
+    "fonction": "Sécretaire General",
+    "telephone": "76737159",
+    "email": " subaahigumo@yahoo.fr",
+    "recent": false
   },
   {
     "name": "AMCFE",
@@ -96,7 +136,11 @@ const membersData = [
     "accordCadre": "00182/00",
     "adresse": "Kabalan tournant cocan",
     "zoneIntervention": "Kayes, Ségou, Koulikoro et le District de Bamako",
-    "responsable": "Moriba Nomoko"
+    "responsable": "Moriba Nomoko",
+    "fonction": "Président",
+    "telephone": "76419340",
+    "email": "nomonkomoriba61@gmail.com",
+    "recent": false
   },
   {
     "name": "AFAD",
@@ -105,7 +149,11 @@ const membersData = [
     "accordCadre": "Accord Cadre signé avec l'Etat, le 18 août 1995 sous le numéro N° 604 et renouvelé le 14 février 2008 sous le N°203/0604",
     "adresse": "Bamako, Faladiè –Séma –Rue 844 / Porte 355 à Côté de la Grande Mosquée ",
     "zoneIntervention": "Bamako, Koulikoro, Dioila, Nara, Sikasso, Mopti, Bandiagara, Kayes, Gao, Tombouctou, Kidal\n",
-    "responsable": "Assitan  Coulibaly"
+    "responsable": "Assitan  Coulibaly",
+    "fonction": "Présidente ",
+    "telephone": "76 23 36 43",
+    "email": "assitancoulibaly2019@gmail.com",
+    "recent": false
   },
   {
     "name": "APIF",
@@ -114,7 +162,11 @@ const membersData = [
     "accordCadre": "0776-324",
     "adresse": " Château secteur I derrière le terrain de football de Gao",
     "zoneIntervention": "District de Bamako, Koulikoro, Gao, Tombouctou, Kidal ",
-    "responsable": "Ahmadou Maiga"
+    "responsable": "Ahmadou Maiga",
+    "fonction": "Coordinateur",
+    "telephone": "63388748/ 76051138",
+    "email": "apifgao5@yahoo.fr  / ahmadousalihoumaiga@gmail.com  ",
+    "recent": false
   },
   {
     "name": "GRADECOM",
@@ -123,7 +175,11 @@ const membersData = [
     "accordCadre": "Accord-Cadre N° 0502 MATS DNAT ",
     "adresse": "Sikasso-Hamdallaye",
     "zoneIntervention": "Sikasso, Bougouni, Koutiala, Nara, Mopti et Bamako",
-    "responsable": "Fousséni Dembélé"
+    "responsable": "Fousséni Dembélé",
+    "fonction": "Directeur Exécutif",
+    "telephone": "76 07 22 03",
+    "email": "dembelefousseni_@gmail,com",
+    "recent": false
   },
   {
     "name": "A.Pro.F.E.J",
@@ -132,7 +188,11 @@ const membersData = [
     "accordCadre": "1726",
     "adresse": "Sirakoro cité BMS en face dela pharmacie Issiaka SANOGO",
     "zoneIntervention": "Bamako, Koulikoro",
-    "responsable": "Brehima Diallo"
+    "responsable": "Brehima Diallo",
+    "fonction": "Directeur Exécutif",
+    "telephone": "76 12 27 32",
+    "email": "aprofej2009@gmail,com",
+    "recent": false
   },
   {
     "name": "GARDL",
@@ -141,7 +201,11 @@ const membersData = [
     "accordCadre": "0293/001790",
     "adresse": "Bamako-Sirakoro-Cité BMS",
     "zoneIntervention": "Bamako - Koulikoro - Sikasso-Bougouni - Mopti - Bandiagara-Douentza-Tombouctou-Taoudénié-Nara -Gao - Menaka et Kidal",
-    "responsable": "Mohamed Lamine M'boderi"
+    "responsable": "Mohamed Lamine M'boderi",
+    "fonction": "Coordinateur National",
+    "telephone": "76213577",
+    "email": "onggardl@yahoo.fr/djibo3131@gmail.com",
+    "recent": false
   },
   {
     "name": "HELP-SAHEL",
@@ -150,7 +214,11 @@ const membersData = [
     "accordCadre": "Accord Cadre 1840",
     "adresse": "Bamako, 1008 logement",
     "zoneIntervention": "Kidal, Ménaka, Gao, Tombouctou, Mopti\n",
-    "responsable": "Alassane AG Mohamar"
+    "responsable": "Alassane AG Mohamar",
+    "fonction": "Directeur Executif",
+    "telephone": "77292417",
+    "email": "ong@helpforsahel.org alassaneagmohamar66@gmail.com",
+    "recent": false
   },
   {
     "name": "AAG",
@@ -159,7 +227,11 @@ const membersData = [
     "accordCadre": "Accord-Cadre N° 001348 MATS DNAT ",
     "adresse": "Gao château extension sud",
     "zoneIntervention": "Gao, Tombouctou, Ménaka, Sikasso, Ségou et Mopti",
-    "responsable": "Abdoul Moutalib Ag Watane"
+    "responsable": "Abdoul Moutalib Ag Watane",
+    "fonction": "Coordinateur",
+    "telephone": "77639251",
+    "email": "cp.gourma015@gmail.com",
+    "recent": false
   },
   {
     "name": "YA-G-TU",
@@ -168,7 +240,11 @@ const membersData = [
     "accordCadre": "0635/000947",
     "adresse": "Bandiagara",
     "zoneIntervention": "Bandiagara;\nDouentza;\nMopti;\nSan;\nSegou;\nNioro du sahel",
-    "responsable": "Yaïguéré Tembely"
+    "responsable": "Yaïguéré Tembely",
+    "fonction": "Directrice ",
+    "telephone": "76372228",
+    "email": "ongyagtubandiagara@gmail.com ;tembelyyaiguerefifi@outlook.fr",
+    "recent": false
   },
   {
     "name": "AID-ZL ",
@@ -177,7 +253,11 @@ const membersData = [
     "accordCadre": "1798MATD ",
     "adresse": "Bamako, Bacodjicoroni Golfe, Rue 812 Porte B4",
     "zoneIntervention": "Bamako, San, Mopti, Bandjagara, Douentza, Tombouctou, Taoudenit et Gao ",
-    "responsable": "Moussa Ibrahima  Toure"
+    "responsable": "Moussa Ibrahima  Toure",
+    "fonction": "Directeur Exécutif ",
+    "telephone": "76 06 09 72 ",
+    "email": "m.toure@aidzl.org",
+    "recent": false
   },
   {
     "name": "FEDE",
@@ -186,7 +266,11 @@ const membersData = [
     "accordCadre": "0524/001582",
     "adresse": "Route de Kati 800m du centre émetteur de  l'ORTM, rue à droite  juste avant la Boulangerie \"BABA\", en face dans la rue et sur la gauche, Château d'eau vert, faire face à Kati, 50m à droite, 5è Bâtiment.",
     "zoneIntervention": "Bamako -Kayes - Kita - Koulikoro - Sikasso- Ségou - San - Koutiala -  Mopti - Bandiagara -Gao - Menaka",
-    "responsable": "Korotoumou Théra"
+    "responsable": "Korotoumou Théra",
+    "fonction": "Directrice excécutive",
+    "telephone": "76 07 73 49",
+    "email": "fedev2000@yahoo.fr / fedevbko@gmail.com",
+    "recent": false
   },
   {
     "name": "AMALED Mali",
@@ -195,7 +279,11 @@ const membersData = [
     "accordCadre": "Accord-Cadre N° 0502 MATS DNAT ",
     "adresse": "Sikasso-Hamdallaye",
     "zoneIntervention": "Sikasso, Bougouni, Koutiala, Nara, Mopti et Bamako",
-    "responsable": "Fousséni Dembélé"
+    "responsable": "Fousséni Dembélé",
+    "fonction": "Directeur Exécutif",
+    "telephone": "76 07 22 03",
+    "email": "dembelefousseni_@gmail.com",
+    "recent": false
   },
   {
     "name": "AFEM",
@@ -204,7 +292,11 @@ const membersData = [
     "accordCadre": "N°0232/G-DB Récépissé, N° Accord Cadre 001800",
     "adresse": "Lassa Commune IV du District de Bamako ",
     "zoneIntervention": "Kayes, Bamako, Mopti, Tombouctou, Gao, Kidal, Ségou, Koulikoro, Sikasso",
-    "responsable": "Kadiditou Doumbia"
+    "responsable": "Kadiditou Doumbia",
+    "fonction": "Présidente",
+    "telephone": "76071242",
+    "email": "infoafem06@gmail.com  ",
+    "recent": false
   },
   {
     "name": "APROFID",
@@ -213,7 +305,11 @@ const membersData = [
     "accordCadre": "0694/001075",
     "adresse": "Bamako",
     "zoneIntervention": "Mopti,  Gao, Segou, Tombouctou Kidal ET LE DISTRICT DE BAMAKO",
-    "responsable": "Mme Maiga   Kadidiatou Baby"
+    "responsable": "Mme Maiga   Kadidiatou Baby",
+    "fonction": "Présidante ",
+    "telephone": "76413768",
+    "email": "aprofidmali@gmail.com   ",
+    "recent": false
   },
   {
     "name": "ADICOM",
@@ -222,7 +318,11 @@ const membersData = [
     "accordCadre": "Accord Cadre N°001387",
     "adresse": " Bamako, Yirimadio,ZRNY, Pres du stade du 26 Mars   ",
     "zoneIntervention": "Tombouctou,  Diola, Koulikoro,  District de Bamako",
-    "responsable": "Alassane  Aguili"
+    "responsable": "Alassane  Aguili",
+    "fonction": "Directeur Exécutif",
+    "telephone": "79 36 95 96",
+    "email": "aaguili@ongadicom.com/alassaneadicko@yahoo.com",
+    "recent": false
   },
   {
     "name": "OMPIDES",
@@ -231,7 +331,11 @@ const membersData = [
     "accordCadre": " N°00913 du 03 septembre 1997 rénouvelé le 26 Janvier 2023 sous le N°001969",
     "adresse": "BAMAKO, NIAMANA pres de la cour des Eaux et Forets",
     "zoneIntervention": "TOMBOUCTOU, GAO, KIDAL, TAOUDENIT, MENAKA , BAMAKO, SIKASSO, KOULIKORO, SEGOU ET MOPTI",
-    "responsable": "Mohamed  ANSARI"
+    "responsable": "Mohamed  ANSARI",
+    "fonction": "Président",
+    "telephone": " 75 86 42 88 ",
+    "email": "ongompides@gmail.com",
+    "recent": false
   },
   {
     "name": "AADECOM",
@@ -240,7 +344,11 @@ const membersData = [
     "accordCadre": "1274",
     "adresse": "Bamako",
     "zoneIntervention": "Kayes, Koulikoro, Sikasso, Ségou, Tombouctou, Gao et district de Bamako",
-    "responsable": "Haidara Hamadoun "
+    "responsable": "Haidara Hamadoun ",
+    "fonction": "Directeur",
+    "telephone": "72 17 27 63",
+    "email": "aadecom17@yahoo.fr",
+    "recent": false
   },
   {
     "name": "AADI",
@@ -249,7 +357,11 @@ const membersData = [
     "accordCadre": "0889/1574",
     "adresse": "DJENNE",
     "zoneIntervention": "DJENNE",
-    "responsable": "Djenepo Kadidia"
+    "responsable": "Djenepo Kadidia",
+    "fonction": "Coordinatrice",
+    "telephone": "76060262",
+    "email": "kadidiadj@yahoo.fr",
+    "recent": false
   },
   {
     "name": "AAFDRK",
@@ -258,7 +370,11 @@ const membersData = [
     "accordCadre": "1395",
     "adresse": "Kidal",
     "zoneIntervention": "Kidal",
-    "responsable": "Amewey Mohamed Ag"
+    "responsable": "Amewey Mohamed Ag",
+    "fonction": "Responsable",
+    "telephone": "65072950",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "AAKLMFE",
@@ -267,7 +383,11 @@ const membersData = [
     "accordCadre": "1738",
     "adresse": "Sogoniko, Bamako",
     "zoneIntervention": " Kayes  ,Koulikoro ,Sikasso ,Ségou ,Mopti et le district de Bamako",
-    "responsable": "Dicko Moine"
+    "responsable": "Dicko Moine",
+    "fonction": "Présidente",
+    "telephone": "78796775",
+    "email": "ambekunko@gmail.com",
+    "recent": false
   },
   {
     "name": "ACESEM",
@@ -276,7 +396,11 @@ const membersData = [
     "accordCadre": "39",
     "adresse": "bamako",
     "zoneIntervention": "Bamako",
-    "responsable": " Maiga  Boubacar "
+    "responsable": " Maiga  Boubacar ",
+    "fonction": "Responsable",
+    "telephone": "77 08 40 23",
+    "email": "acesem18@yahoo.com",
+    "recent": false
   },
   {
     "name": "ADAIV",
@@ -285,7 +409,11 @@ const membersData = [
     "accordCadre": "1576",
     "adresse": "Quartier Alphaou, GOUNDAM",
     "zoneIntervention": " Kayes, Ségou, Mopti, Tombouctou, Kidal, Taoudéni, Ménaka et le district de Bamako",
-    "responsable": " Maiga Abdou "
+    "responsable": " Maiga Abdou ",
+    "fonction": "Responsable",
+    "telephone": "78979060",
+    "email": "adaiv.ong@yahoo.com",
+    "recent": false
   },
   {
     "name": "ADCOPS",
@@ -294,7 +422,11 @@ const membersData = [
     "accordCadre": "0534/001017",
     "adresse": "boulkassoumbougou, Bamako",
     "zoneIntervention": "Tout le Mali",
-    "responsable": "Guiteye  Alidji H "
+    "responsable": "Guiteye  Alidji H ",
+    "fonction": "Directeur Exécutif",
+    "telephone": "79 04 18 63",
+    "email": "adcops@yahoo.fr",
+    "recent": false
   },
   {
     "name": "ADD-MALI",
@@ -303,7 +435,11 @@ const membersData = [
     "accordCadre": "001487/01976",
     "adresse": "Kidal",
     "zoneIntervention": "Mopti, Tombouctou, Gao, Kidal et district de Bamako",
-    "responsable": " Biga Amadou "
+    "responsable": " Biga Amadou ",
+    "fonction": "Coordinateur",
+    "telephone": "90 95 28 53",
+    "email": "contact@add-kidalmali.org",
+    "recent": false
   },
   {
     "name": "ADDF-MALI",
@@ -312,7 +448,11 @@ const membersData = [
     "accordCadre": "1388",
     "adresse": "Bamako",
     "zoneIntervention": "Koulikoro, Ségou, Mopti, Sikasso et le district de Bamako",
-    "responsable": "Mme Kane  Kane Fatimata Kane "
+    "responsable": "Mme Kane  Kane Fatimata Kane ",
+    "fonction": "Directrice Executive",
+    "telephone": "66780741",
+    "email": "addfmali@yahoo.fr",
+    "recent": false
   },
   {
     "name": "ADENORD",
@@ -321,7 +461,11 @@ const membersData = [
     "accordCadre": "0724/001080",
     "adresse": "Tombouctou",
     "zoneIntervention": "Tombouctou",
-    "responsable": "Maiga Hamza "
+    "responsable": "Maiga Hamza ",
+    "fonction": "Coordinateur",
+    "telephone": "76041989",
+    "email": "adenord@yahoo.fr",
+    "recent": false
   },
   {
     "name": "ADIL-MALI",
@@ -330,7 +474,11 @@ const membersData = [
     "accordCadre": "1488",
     "adresse": "Tombouctou",
     "zoneIntervention": "Tombouctou",
-    "responsable": " Arby Dramane"
+    "responsable": " Arby Dramane",
+    "fonction": "Responsable",
+    "telephone": "77 19 08 99",
+    "email": "adil-mali@gmail.com",
+    "recent": false
   },
   {
     "name": "ADIC-SAHEL",
@@ -339,16 +487,24 @@ const membersData = [
     "accordCadre": "0711/2148",
     "adresse": "TOMBOUCTOU",
     "zoneIntervention": "Tombouctou, Gao, Mopti, Segou",
-    "responsable": "Aliou  MAHAMANE"
+    "responsable": "Aliou  MAHAMANE",
+    "fonction": "DIRECTEUR EXCUTIF",
+    "telephone": "76051912",
+    "email": "adicsahel@gmail,com",
+    "recent": false
   },
   {
     "name": "AFDP",
     "fullName": "Association Malienne des Droits de L'Homme",
-    "dateCreation": "",
-    "accordCadre": "",
+    "dateCreation": NaN,
+    "accordCadre": NaN,
     "adresse": "Bamako",
     "zoneIntervention": "Gao, Segou, Bamako, Koulikoro",
-    "responsable": "Biga Amadou "
+    "responsable": "Biga Amadou ",
+    "fonction": "Président",
+    "telephone": "75226037",
+    "email": "amadoubiga7@gmail.com",
+    "recent": false
   },
   {
     "name": "AJDM",
@@ -357,16 +513,24 @@ const membersData = [
     "accordCadre": "01176/0751",
     "adresse": "Bamako",
     "zoneIntervention": "Bamako",
-    "responsable": "Doumbia     Somah"
+    "responsable": "Doumbia     Somah",
+    "fonction": "Responsable",
+    "telephone": "76 43 47 31",
+    "email": "ajdmorga@yahoo.fr",
+    "recent": false
   },
   {
     "name": "RED",
     "fullName": "RED",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "dateCreation": NaN,
+    "accordCadre": NaN,
+    "adresse": NaN,
+    "zoneIntervention": NaN,
+    "responsable": " ",
+    "fonction": NaN,
+    "telephone": NaN,
+    "email": "redbamako@gmail.com",
+    "recent": false
   },
   {
     "name": "AMADE PELCODE",
@@ -375,7 +539,11 @@ const membersData = [
     "accordCadre": "0571/000762",
     "adresse": "Bamako",
     "zoneIntervention": "Gao, Tombouctou, Segou, Koulikoro et District de Bamako",
-    "responsable": " F Maiga Mouhamdou "
+    "responsable": " F Maiga Mouhamdou ",
+    "fonction": "Coordinateur",
+    "telephone": "76463336",
+    "email": "mouhamadoumaiga@gmail.com",
+    "recent": false
   },
   {
     "name": "AMSODE",
@@ -384,7 +552,11 @@ const membersData = [
     "accordCadre": "1480",
     "adresse": "Tombouctou",
     "zoneIntervention": "Mopti, Tombouctou, Gao, Kidal et district de Bamako",
-    "responsable": "Diallo Moussa Abba "
+    "responsable": "Diallo Moussa Abba ",
+    "fonction": "Président",
+    "telephone": "78 19 27 29",
+    "email": "secretariat@amsode.org",
+    "recent": false
   },
   {
     "name": "APEP",
@@ -393,7 +565,11 @@ const membersData = [
     "accordCadre": "1418",
     "adresse": "Bamako",
     "zoneIntervention": "Bamako",
-    "responsable": "Kansaye  Abdoulaye  "
+    "responsable": "Kansaye  Abdoulaye  ",
+    "fonction": "Responsable",
+    "telephone": "66758535",
+    "email": "apeppourtous@gmail.com",
+    "recent": false
   },
   {
     "name": "APHALOG",
@@ -402,7 +578,11 @@ const membersData = [
     "accordCadre": "0494/0130",
     "adresse": "Bamako",
     "zoneIntervention": "Koulikoro, Ségou, Sikasso, Mopti, Bandigara, Koutiala et district de Bamako",
-    "responsable": "Diakité Seydou "
+    "responsable": "Diakité Seydou ",
+    "fonction": "Coordinateur",
+    "telephone": "62 01 52 88",
+    "email": "Seydoudiakité13@yahoo.fr",
+    "recent": false
   },
   {
     "name": "APSM",
@@ -411,7 +591,11 @@ const membersData = [
     "accordCadre": "0196/001394",
     "adresse": "Bamako",
     "zoneIntervention": "Ensemble du territoire du Mali",
-    "responsable": " Diallo Ali "
+    "responsable": " Diallo Ali ",
+    "fonction": "Responsable",
+    "telephone": "20 20 17 41",
+    "email": "apsm@apsmmali.ml",
+    "recent": false
   },
   {
     "name": "APSN",
@@ -420,7 +604,11 @@ const membersData = [
     "accordCadre": "1917",
     "adresse": "Faladiè Sokoro",
     "zoneIntervention": "Bamako, Koulikoro, Ségou,  Kayes, Sikasso, Gao,Tombouctou, Kidal et Menaka",
-    "responsable": "Ali DIALLO"
+    "responsable": "Ali DIALLO",
+    "fonction": "Directeur Exécutif",
+    "telephone": "74 41 68 19/    66 54 19 72",
+    "email": "apsnmali2016@gmail.com",
+    "recent": false
   },
   {
     "name": "ARDIL",
@@ -429,7 +617,11 @@ const membersData = [
     "accordCadre": "0139/00032",
     "adresse": "Tombouctou",
     "zoneIntervention": "Tombouctou",
-    "responsable": "Maiga Abdel Hamid "
+    "responsable": "Maiga Abdel Hamid ",
+    "fonction": "Coordinateur",
+    "telephone": "66 98 25 81",
+    "email": "ardil_tombouctou@yahoo.fr",
+    "recent": false
   },
   {
     "name": "ASDAP",
@@ -438,7 +630,11 @@ const membersData = [
     "accordCadre": "0333/000424",
     "adresse": "Bamako",
     "zoneIntervention": "Koulikoro, Segou, Mopti, Sikasso, Kayes, le district de Bamako",
-    "responsable": "  Touré Traoré Fatoumata  "
+    "responsable": "  Touré Traoré Fatoumata  ",
+    "fonction": "Responsable",
+    "telephone": "71 38 93 22",
+    "email": "asdap@asdapmali.org",
+    "recent": false
   },
   {
     "name": "ASPODLCE",
@@ -447,7 +643,11 @@ const membersData = [
     "accordCadre": "6342",
     "adresse": "Tombouctou",
     "zoneIntervention": "Ensemble du territoire du Mali",
-    "responsable": " Ould Baba  Mohamed Lamine "
+    "responsable": " Ould Baba  Mohamed Lamine ",
+    "fonction": "Responsable",
+    "telephone": "73 76 59 09",
+    "email": "ongaspod@gmail.com",
+    "recent": false
   },
   {
     "name": "ASREF",
@@ -456,7 +656,11 @@ const membersData = [
     "accordCadre": "1395",
     "adresse": "Bamako",
     "zoneIntervention": "Kidal, Gao, Menaka, Tombouctou",
-    "responsable": "Ag Amewey Mohamed "
+    "responsable": "Ag Amewey Mohamed ",
+    "fonction": "Président",
+    "telephone": "76309290",
+    "email": "ongasref@gmail.com",
+    "recent": false
   },
   {
     "name": "ASSADDEC",
@@ -465,7 +669,11 @@ const membersData = [
     "accordCadre": "0167/1634",
     "adresse": "Kidal",
     "zoneIntervention": "Kidal",
-    "responsable": "Walet  Akli  Bayano "
+    "responsable": "Walet  Akli  Bayano ",
+    "fonction": "Responsable",
+    "telephone": "76045465",
+    "email": "ongassaddec@yahoo.fr",
+    "recent": false
   },
   {
     "name": "ASSAHSSAL",
@@ -474,7 +682,11 @@ const membersData = [
     "accordCadre": "1306",
     "adresse": "Kidal",
     "zoneIntervention": "Tombouctou, Gao, Kidal ET District de Bamako",
-    "responsable": "Ag Igasten Gamni "
+    "responsable": "Ag Igasten Gamni ",
+    "fonction": "Responsable",
+    "telephone": "65570537",
+    "email": "assahkid@gmail.com",
+    "recent": false
   },
   {
     "name": "ASSOPROFEN",
@@ -483,7 +695,11 @@ const membersData = [
     "accordCadre": "0261/002095",
     "adresse": "Bamako",
     "zoneIntervention": "Koulikoro, Sikasso, Mopti, District de Bamako",
-    "responsable": " Samaké Lala"
+    "responsable": " Samaké Lala",
+    "fonction": "Responsable",
+    "telephone": "76021486",
+    "email": "assoprofen2002@yahoo.fr",
+    "recent": false
   },
   {
     "name": "AVENIR ",
@@ -492,7 +708,11 @@ const membersData = [
     "accordCadre": "1534",
     "adresse": "Sotuba ACI près de la protection civile Bamako",
     "zoneIntervention": "Kidal, Ménaka, Gao, Tombouctou, Mopti, Ségou et district de Bamako",
-    "responsable": "Moussa  KONE"
+    "responsable": "Moussa  KONE",
+    "fonction": "Directeur Exécutif",
+    "telephone": "22376192291/76464056",
+    "email": "avenirprogramme@gmail.com",
+    "recent": false
   },
   {
     "name": "AV.E.S",
@@ -501,7 +721,11 @@ const membersData = [
     "accordCadre": "0634/MATCL - DNI",
     "adresse": "Bamako, Hamdallaye ACI 2000, Nord Ouest de l'hôtel Akakos Bouna",
     "zoneIntervention": "Kita, Koulikoro, Ségou, Mopti et Douentza",
-    "responsable": "Mohamed Sidibé"
+    "responsable": "Mohamed Sidibé",
+    "fonction": "Chargé des Projets et Programmes",
+    "telephone": "76429991",
+    "email": "avenir0307@yahoo.fr",
+    "recent": false
   },
   {
     "name": "AZHAR",
@@ -510,7 +734,11 @@ const membersData = [
     "accordCadre": "0135/001633",
     "adresse": "Kidal",
     "zoneIntervention": "Kidal, Gao",
-    "responsable": "MAIGA YOUSSOUF "
+    "responsable": "MAIGA YOUSSOUF ",
+    "fonction": "Responsable",
+    "telephone": "78176139",
+    "email": "assi.namar@yahoo.fr",
+    "recent": false
   },
   {
     "name": "CAEB",
@@ -519,7 +747,11 @@ const membersData = [
     "accordCadre": "0914/0529",
     "adresse": "Bamako",
     "zoneIntervention": "Koulikoro, Sikasso et district de Bamako",
-    "responsable": "Traoré Gahoussou "
+    "responsable": "Traoré Gahoussou ",
+    "fonction": "Sécretaire General",
+    "telephone": "79130153",
+    "email": "caeb@afribone.net. Ml",
+    "recent": false
   },
   {
     "name": "CARD",
@@ -528,7 +760,11 @@ const membersData = [
     "accordCadre": "0209/000491",
     "adresse": "Bamako",
     "zoneIntervention": "Koulikoro, Ségou, Gao,  Mopti et district de Bamako",
-    "responsable": "Maiga Diabirou"
+    "responsable": "Maiga Diabirou",
+    "fonction": "Président",
+    "telephone": "76286294",
+    "email": "card@afribonemali.net",
+    "recent": false
   },
   {
     "name": "CASE-SAHEL",
@@ -537,7 +773,11 @@ const membersData = [
     "accordCadre": "accord cadre signe le 07 avril 2015 sous le numero 001491 et regie par la loi n*04-038 du 5 aout 2004 relative aux associations du Mali",
     "adresse": "Bamako",
     "zoneIntervention": "Bamako, Segou, Koulikoro, Koutiala, Dioila et kayes",
-    "responsable": "Michel Dembele"
+    "responsable": "Michel Dembele",
+    "fonction": "Directeur Executif",
+    "telephone": "76492752",
+    "email": "case.sahel1@gmail.com",
+    "recent": false
   },
   {
     "name": "CERCA",
@@ -546,7 +786,11 @@ const membersData = [
     "accordCadre": "1300",
     "adresse": "Bamako",
     "zoneIntervention": "Kayes, Koulikoro, Ségou, Mopti, Tombouctou, Gao, Kidal Taoudéni, Ménaka",
-    "responsable": " Ag  Ahmedou  Koina "
+    "responsable": " Ag  Ahmedou  Koina ",
+    "fonction": "Directeur exécutif",
+    "telephone": "76082288",
+    "email": "ong.cerca@yahoo.com",
+    "recent": false
   },
   {
     "name": "CRADI",
@@ -555,16 +799,24 @@ const membersData = [
     "accordCadre": "1765",
     "adresse": "Kidak",
     "zoneIntervention": "Koulikoro, Mopti, Tombouctou, Kidal, Taoudeni, Gao, Menaka et le District de Bamako",
-    "responsable": " Ag Jiddou Acheich "
+    "responsable": " Ag Jiddou Acheich ",
+    "fonction": "Président",
+    "telephone": "91707713",
+    "email": "ongcradi2@gmail.com",
+    "recent": false
   },
   {
     "name": "DDRNAS",
     "fullName": "DDRNAS",
-    "dateCreation": "",
-    "accordCadre": "",
+    "dateCreation": NaN,
+    "accordCadre": NaN,
     "adresse": "Gao",
     "zoneIntervention": "Gao, Menaka, Mopti",
-    "responsable": " O Toure AbdoulKadri"
+    "responsable": " O Toure AbdoulKadri",
+    "fonction": "Directeur",
+    "telephone": NaN,
+    "email": "ongddrnas@yahoo.fr",
+    "recent": false
   },
   {
     "name": "EFFAD",
@@ -573,7 +825,11 @@ const membersData = [
     "accordCadre": "0344/001866",
     "adresse": "Kidal",
     "zoneIntervention": "Tout le territoire du Mali",
-    "responsable": "Kouyaté  Adama "
+    "responsable": "Kouyaté  Adama ",
+    "fonction": "Coordinateur National",
+    "telephone": "76 04 52 91",
+    "email": "ongeffad@yahoo.fr",
+    "recent": false
   },
   {
     "name": "ENDA-MALI",
@@ -582,7 +838,11 @@ const membersData = [
     "accordCadre": "0045/000583",
     "adresse": "Bamako",
     "zoneIntervention": "Tout le Mali",
-    "responsable": " Coulibaly Soumana "
+    "responsable": " Coulibaly Soumana ",
+    "fonction": "Directeur",
+    "telephone": "222 55 64",
+    "email": "enda-mali@cifeb.com",
+    "recent": false
   },
   {
     "name": "ERADD",
@@ -591,7 +851,11 @@ const membersData = [
     "accordCadre": "7432",
     "adresse": "Bamako",
     "zoneIntervention": "Kidal, Gao, Ménaka, Tessalit, Mopti et District de Bamako",
-    "responsable": " Konaté Ousmane Famagan "
+    "responsable": " Konaté Ousmane Famagan ",
+    "fonction": "Coordinateur",
+    "telephone": "82807056",
+    "email": "contact@eradd.org",
+    "recent": false
   },
   {
     "name": "FORJEC",
@@ -600,7 +864,11 @@ const membersData = [
     "accordCadre": "1852",
     "adresse": "Bamako",
     "zoneIntervention": "Sikasso, Koulikoro, Mopti, Tombouctou, Gao, Menaka et le District de Bamako",
-    "responsable": " H.DIEPKILE ABOUBAKAR "
+    "responsable": " H.DIEPKILE ABOUBAKAR ",
+    "fonction": "Directeur Exécutif",
+    "telephone": " 79 42 73 31",
+    "email": "abouhassfati@gmail.com",
+    "recent": false
   },
   {
     "name": "GREFFA",
@@ -609,7 +877,11 @@ const membersData = [
     "accordCadre": "0072/000645",
     "adresse": "GAO",
     "zoneIntervention": "GAO",
-    "responsable": " Touré Fatoumata Aliou "
+    "responsable": " Touré Fatoumata Aliou ",
+    "fonction": "Présidente",
+    "telephone": "65 72 34 04",
+    "email": "greffa_ong@yahoo.fr",
+    "recent": false
   },
   {
     "name": "IMADEL",
@@ -618,7 +890,11 @@ const membersData = [
     "accordCadre": "1138",
     "adresse": "Bamako",
     "zoneIntervention": "Ensemble du Territoire National",
-    "responsable": " Diallo  Mamoudou Abdoulaye "
+    "responsable": " Diallo  Mamoudou Abdoulaye ",
+    "fonction": "Directeur",
+    "telephone": "76483661",
+    "email": "imadel1@yahoo.fr",
+    "recent": false
   },
   {
     "name": "OMAES",
@@ -627,7 +903,11 @@ const membersData = [
     "accordCadre": "104",
     "adresse": "Bamako",
     "zoneIntervention": "Mopti, Koulikoro, Tombouctou et  District de Bamako",
-    "responsable": " Traore  Bréhima "
+    "responsable": " Traore  Bréhima ",
+    "fonction": "Directeur Programme",
+    "telephone": "76252762",
+    "email": "omaesa@afribonemali.net",
+    "recent": false
   },
   {
     "name": "OPEN-MALI",
@@ -636,7 +916,11 @@ const membersData = [
     "accordCadre": "1590",
     "adresse": "Bamako",
     "zoneIntervention": "Kayes, Koulikoro, Sikasso, Ségou, Tombouctou, gao, Ménaka, Taoudeni, Mopti, district de Bamako",
-    "responsable": "Sissoko Louis Check "
+    "responsable": "Sissoko Louis Check ",
+    "fonction": "Directeur exécutif",
+    "telephone": "77 64 64 64",
+    "email": "openmali@openmali.com",
+    "recent": false
   },
   {
     "name": "PADI",
@@ -645,16 +929,24 @@ const membersData = [
     "accordCadre": "0947/001719",
     "adresse": " Ségou",
     "zoneIntervention": "Ensemble du Mali",
-    "responsable": "Kampo Modibo"
+    "responsable": "Kampo Modibo",
+    "fonction": "Responsable",
+    "telephone": "66 05 42 62",
+    "email": "mkampo1@yahoo.fr",
+    "recent": false
   },
   {
     "name": "RAC",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "fullName": NaN,
+    "dateCreation": NaN,
+    "accordCadre": NaN,
+    "adresse": NaN,
+    "zoneIntervention": NaN,
+    "responsable": " ",
+    "fonction": NaN,
+    "telephone": NaN,
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "STOP-SAHEL",
@@ -663,7 +955,11 @@ const membersData = [
     "accordCadre": "0422/000114",
     "adresse": "Bamako",
     "zoneIntervention": "Tout le Mali",
-    "responsable": "Samassekou Ousmane Sory "
+    "responsable": "Samassekou Ousmane Sory ",
+    "fonction": "Directeur exécutif",
+    "telephone": "20233380",
+    "email": "stopsahel@orangemali.net",
+    "recent": false
   },
   {
     "name": "TASSAGHT",
@@ -672,7 +968,11 @@ const membersData = [
     "accordCadre": "0162/000077",
     "adresse": "TASSAGHT",
     "zoneIntervention": "Tombouctou,Gao, Ménaka, Mopti, Douentza, Bandiagara, Ségou, Sikasso, Koulikoro, Bamako",
-    "responsable": " Aziz Abdoul"
+    "responsable": " Aziz Abdoul",
+    "fonction": "Coordonnateur",
+    "telephone": "76046428",
+    "email": "tassaght@afribone.ml",
+    "recent": false
   },
   {
     "name": "TP",
@@ -681,16 +981,11 @@ const membersData = [
     "accordCadre": "1605",
     "adresse": "Hamdallaye ACI 2000, Près de Radisson Blu, derrière la Clinique Diafounou, Rue: 409, Porte : 57",
     "zoneIntervention": "19 régions plus le District de Bamako",
-    "responsable": "Abdou Kola  BOCOUM"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Abdou Kola  BOCOUM",
+    "fonction": "Coordonnateur National",
+    "telephone": "79230217",
+    "email": "ak.bocoum@thinkpeace-sahel.org",
+    "recent": false
   },
   {
     "name": "WINDILA KONDA",
@@ -699,7 +994,11 @@ const membersData = [
     "accordCadre": "1153",
     "adresse": "Tombouctou",
     "zoneIntervention": "Tombouctou",
-    "responsable": " Maiga  Aly Arboncana  "
+    "responsable": " Maiga  Aly Arboncana  ",
+    "fonction": "Responable",
+    "telephone": "76 14 62 04",
+    "email": "ongwindilakonda@yahoo.fr",
+    "recent": false
   },
   {
     "name": "WK",
@@ -708,7 +1007,11 @@ const membersData = [
     "accordCadre": "0258/000509 ",
     "adresse": "Faladjie Sema, Rue 840, Porte 28141",
     "zoneIntervention": "Gao,  Douantza, Bandiagara, Mopti, Bamako, Tombouctou, Koulikoro, ",
-    "responsable": "Mme Oumou TOURE"
+    "responsable": "Mme Oumou TOURE",
+    "fonction": "Secrétaire Générale ",
+    "telephone": "22376227524/90239360",
+    "email": "woiyokondeye@yahoo.fr",
+    "recent": false
   },
   {
     "name": "RAC",
@@ -717,7 +1020,11 @@ const membersData = [
     "accordCadre": "0915/001621",
     "adresse": "Bamako",
     "zoneIntervention": "Ensemble du territoire du Mali",
-    "responsable": " Touré Fatoumata "
+    "responsable": " Touré Fatoumata ",
+    "fonction": "Coordinatrice National",
+    "telephone": "76123117",
+    "email": "rac_mali@yahoo.fr",
+    "recent": false
   },
   {
     "name": "TILALTE",
@@ -726,7 +1033,11 @@ const membersData = [
     "accordCadre": "1920",
     "adresse": "Tombouctou",
     "zoneIntervention": "Mopti, Gao, Tombouctou, Menaka, Taoudenit et district de Bamako",
-    "responsable": "Cissé Mohamed "
+    "responsable": "Cissé Mohamed ",
+    "fonction": "Président",
+    "telephone": "76023535",
+    "email": "ong.tilalte23@gmail.com",
+    "recent": false
   },
   {
     "name": "Action Mopti",
@@ -734,44 +1045,12 @@ const membersData = [
     "dateCreation": "2008-07-04 00:00:00",
     "accordCadre": "0657/0150",
     "adresse": "Mopti",
-    "zoneIntervention": "",
-    "responsable": "Maiga Abdoul Karim"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "zoneIntervention": NaN,
+    "responsable": "Maiga Abdoul Karim",
+    "fonction": "Coordinateur",
+    "telephone": NaN,
+    "email": "mopti@actionmopti.org",
+    "recent": false
   },
   {
     "name": "AMPDR",
@@ -780,34 +1059,11 @@ const membersData = [
     "accordCadre": "0215/000600",
     "adresse": "Bamako",
     "zoneIntervention": "Ensemble du territoire du Mali",
-    "responsable": "Ouattara Gaoussou Amadou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Ouattara Gaoussou Amadou",
+    "fonction": "Président",
+    "telephone": "229-20-03",
+    "email": "ampdr@yahoo.com",
+    "recent": false
   },
   {
     "name": "GARI",
@@ -816,34 +1072,11 @@ const membersData = [
     "accordCadre": "0004/000183",
     "adresse": "Menaka",
     "zoneIntervention": "Tombouctou, Gao, Kidal et le district de Bamako",
-    "responsable": " Ibrahim AG"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": " Ibrahim AG",
+    "fonction": "Representant",
+    "telephone": "282-09-16",
+    "email": "ongarimenaka@yahoo.fr",
+    "recent": false
   },
   {
     "name": "NOVA-MALI",
@@ -852,34 +1085,11 @@ const membersData = [
     "accordCadre": "1675",
     "adresse": "Gao",
     "zoneIntervention": "Kays, Koulikoro, Mopti, Segou, Tombouctou, Gao, Kidal et le district de Bamako",
-    "responsable": "Almahamoudou Ibrahim "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Almahamoudou Ibrahim ",
+    "fonction": "Président",
+    "telephone": "62-09-15-15",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "Talilt/Aide",
@@ -888,34 +1098,11 @@ const membersData = [
     "accordCadre": "2017",
     "adresse": "Kidal",
     "zoneIntervention": "Mopti, Tombouctou, Gao, Kidal, Ménaka et le district de Bamako",
-    "responsable": "Najim Mama Walet"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Najim Mama Walet",
+    "fonction": "Présidente",
+    "telephone": "76-03-57-27",
+    "email": "mamawaletn@gmail.com",
+    "recent": false
   },
   {
     "name": "AJAAH",
@@ -924,34 +1111,11 @@ const membersData = [
     "accordCadre": "1657",
     "adresse": "Bamako",
     "zoneIntervention": "Koulikoro, Mopti, Segou, Sikasso, Gao, Kidal et le district de Bamako",
-    "responsable": "Sidibé Sory I"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Sidibé Sory I",
+    "fonction": "Président",
+    "telephone": "66-61-31-27",
+    "email": "ajaah.mali@gmail.com",
+    "recent": false
   },
   {
     "name": "A.SORO",
@@ -960,34 +1124,11 @@ const membersData = [
     "accordCadre": "1542",
     "adresse": "Bamako",
     "zoneIntervention": "Kays, Koulikororo, Sikasso, Segou, Mopti et le district de Bamako",
-    "responsable": "Coulibaly  Mariam"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Coulibaly  Mariam",
+    "fonction": "Présidente",
+    "telephone": "44-39-91-10",
+    "email": "associationsoro@gmail.com",
+    "recent": false
   },
   {
     "name": "ADID",
@@ -996,70 +1137,11 @@ const membersData = [
     "accordCadre": "1532",
     "adresse": "Bamako",
     "zoneIntervention": "Kays, Koulicoro, Sikasso, Kidal et le district de Bamako",
-    "responsable": "Samake Sidy qMohmed"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Samake Sidy qMohmed",
+    "fonction": "Président",
+    "telephone": "76-41-87-20",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "AFAR",
@@ -1068,61 +1150,11 @@ const membersData = [
     "accordCadre": "0062/000547",
     "adresse": "Bamako",
     "zoneIntervention": "Toutes les regions du Mali",
-    "responsable": "Cissé Amadou A"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Cissé Amadou A",
+    "fonction": "Président",
+    "telephone": "242-0175",
+    "email": "afar@afribonemali.net",
+    "recent": false
   },
   {
     "name": "AGK",
@@ -1131,61 +1163,11 @@ const membersData = [
     "accordCadre": "2011",
     "adresse": "Daka Djerel",
     "zoneIntervention": "Mopti, Menaka, Gao, Tombouctou,Taoudenit et le district de Bamako",
-    "responsable": "Narba Amadou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Narba Amadou",
+    "fonction": "Président",
+    "telephone": "76-34-46-77",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "AHDI-NORD-SUD SAHEL",
@@ -1194,70 +1176,11 @@ const membersData = [
     "accordCadre": "2024",
     "adresse": "GOUNDAM",
     "zoneIntervention": "Mopti, Menaka, Gao, Tombouctou,Taoudenit et le district de Bamako",
-    "responsable": "Iknad Mohmed AG"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Iknad Mohmed AG",
+    "fonction": "Président",
+    "telephone": "76-08-21-93",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "AAPD",
@@ -1266,61 +1189,11 @@ const membersData = [
     "accordCadre": "2073",
     "adresse": "Bamako",
     "zoneIntervention": "Kays, Koulikororo, Sikasso, Segou, Mopti, Koutiala, Kita , Gao et le district de Bamako",
-    "responsable": "Mariko  Fanta"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Mariko  Fanta",
+    "fonction": "Présidente",
+    "telephone": "66-78-33-75",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "ASSALWAG",
@@ -1329,70 +1202,11 @@ const membersData = [
     "accordCadre": "1504",
     "adresse": "Bamako",
     "zoneIntervention": "Mopti, Menaka, Gao, Tombouctou,Taoudenit et le district de Bamako",
-    "responsable": "Sidibe Youssoufa dit M"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Sidibe Youssoufa dit M",
+    "fonction": "Président",
+    "telephone": "66-97-05-96",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "ATDED",
@@ -1401,61 +1215,11 @@ const membersData = [
     "accordCadre": "1509",
     "adresse": "Gao",
     "zoneIntervention": "Tombouctou, Gao, Kidal et Tessalit",
-    "responsable": "Maiga  Mama Youssouf"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Maiga  Mama Youssouf",
+    "fonction": "President",
+    "telephone": "76-25-05-79",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "CREDEL",
@@ -1464,61 +1228,11 @@ const membersData = [
     "accordCadre": "1747",
     "adresse": "Bamako",
     "zoneIntervention": "Kays, Segou, Mopti, Menaka, Nioro, Gao, Tombouctou, Kidal, Menaka, San, Koutiala et le district de Bamako",
-    "responsable": "Traore Abdoulaye  "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Traore Abdoulaye  ",
+    "fonction": "Président",
+    "telephone": "63-09-15-56",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "DHA",
@@ -1527,61 +1241,11 @@ const membersData = [
     "accordCadre": "0336/001307",
     "adresse": "Bamako",
     "zoneIntervention": "Toute les regions du Mali et district de Bamako",
-    "responsable": "Togo Amadou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Togo Amadou",
+    "fonction": "Président",
+    "telephone": "603-71-53",
+    "email": "aemdha@yahoo.fr",
+    "recent": false
   },
   {
     "name": "AJCET",
@@ -1590,61 +1254,11 @@ const membersData = [
     "accordCadre": "1770",
     "adresse": "Bamako",
     "zoneIntervention": "Kays, Koulikororo, Sikasso, Segou, Mopti, Menako, Tombouctou, Taoudenit, Kita , Gao et le district de Bamako",
-    "responsable": "Cissé Amadou dit Samba"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Cissé Amadou dit Samba",
+    "fonction": "Président",
+    "telephone": "71-98-94-32",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "G.Force",
@@ -1653,61 +1267,11 @@ const membersData = [
     "accordCadre": "0145/001978",
     "adresse": "Bamako",
     "zoneIntervention": "Tout le territoire national",
-    "responsable": "Diarra Nouhoum"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Diarra Nouhoum",
+    "fonction": "Président",
+    "telephone": "221-86-12",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "GRIDev",
@@ -1716,61 +1280,11 @@ const membersData = [
     "accordCadre": "1619",
     "adresse": "Gao",
     "zoneIntervention": "Kays, Koulicoro, Sikasso, Segou, Gao, Tombouctou, Mopti et le district de Bamako",
-    "responsable": "Maiga Ibrahim Izéthiégouma"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Maiga Ibrahim Izéthiégouma",
+    "fonction": "Président",
+    "telephone": "76-20-69-91",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "HDS",
@@ -1779,124 +1293,24 @@ const membersData = [
     "accordCadre": "0692/0243",
     "adresse": "Mopti",
     "zoneIntervention": "Ensemble du territoire du Mali",
-    "responsable": "Sagara Justin"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Sagara Justin",
+    "fonction": "Sécretaire permanent",
+    "telephone": "244-24-96",
+    "email": "hds_ong@yahoo.fr",
+    "recent": false
   },
   {
     "name": "IMANEH MALI",
     "fullName": "Association pour la Promotion de la Santé de la Mère et de l'enfant",
     "dateCreation": "2011-01-06 00:00:00",
-    "accordCadre": "",
+    "accordCadre": NaN,
     "adresse": "Bamako",
     "zoneIntervention": "Ensemble du territoire du Mali",
-    "responsable": "Keita  Kadiatou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Keita  Kadiatou",
+    "fonction": "Présidente",
+    "telephone": "20-22-29-03",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "INFO PLUS",
@@ -1905,61 +1319,11 @@ const membersData = [
     "accordCadre": "0798/002004",
     "adresse": "Bamako",
     "zoneIntervention": "Koulicoro, Gao, Tombouctou, Sikasso, Segou et le district de Bamako",
-    "responsable": "Hamma Bintou Wallet"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Hamma Bintou Wallet",
+    "fonction": "Sécretaire Générale",
+    "telephone": "678-55-54",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "NEMADEV",
@@ -1968,61 +1332,11 @@ const membersData = [
     "accordCadre": "1978",
     "adresse": "Bamako",
     "zoneIntervention": "ays, Koulikoro,Sikasso, Mopti, Segou, Tombouctou,Gao, Kidal, Menaka et le district de Bamako",
-    "responsable": "Dougouna  Seydou "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Dougouna  Seydou ",
+    "fonction": "Président",
+    "telephone": "93-60-53-90",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "OMDDS",
@@ -2031,61 +1345,11 @@ const membersData = [
     "accordCadre": "2047",
     "adresse": "Doentza",
     "zoneIntervention": "Koulikoro, Mopti, Segou, Sikasso, Gao, Kidal, menaka et le district de Bamako",
-    "responsable": "Cissé Hamadoun "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Cissé Hamadoun ",
+    "fonction": "Président",
+    "telephone": "75-39-13-47",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "PADL",
@@ -2094,70 +1358,11 @@ const membersData = [
     "accordCadre": "1950",
     "adresse": "Bamako",
     "zoneIntervention": "Mopti, Tombouctou, Gao, Kidal, Taoudenit, Koutiala, San, Bougouni et le district de Bamako",
-    "responsable": "Traore Dédeou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Traore Dédeou",
+    "fonction": "Présidente",
+    "telephone": "76-37-25-55",
+    "email": "dedeou7@yahoo.fr",
+    "recent": false
   },
   {
     "name": "SAGOPS",
@@ -2166,133 +1371,24 @@ const membersData = [
     "accordCadre": "1936",
     "adresse": "Kidal",
     "zoneIntervention": "ays,Sikasso, Mopti, Segou, Tombouctou,Gao, Kidal et le district de Bamako",
-    "responsable": "Toure Nana Alassane"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Toure Nana Alassane",
+    "fonction": "Président",
+    "telephone": "75-95-96-14",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "SAIB",
     "fullName": "Sahélienne d'Apui aux Initiatives de Base",
-    "dateCreation": "",
-    "accordCadre": "",
+    "dateCreation": NaN,
+    "accordCadre": NaN,
     "adresse": "Bamako",
     "zoneIntervention": "Ensemble du territoire du Mali",
-    "responsable": "Cissé Amadou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Cissé Amadou",
+    "fonction": "Président",
+    "telephone": "673-03-36",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "SOS",
@@ -2301,70 +1397,11 @@ const membersData = [
     "accordCadre": "2025",
     "adresse": "Menaka",
     "zoneIntervention": "Kays, Koulikoro, Sikasso, Segou, Mopti, Tombouctou, Gao, Kidal, Douentza, Nioro, Nara, Bandiangara et le district de Bamako",
-    "responsable": "Abdoulahi Albacher AG"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Abdoulahi Albacher AG",
+    "fonction": "Président",
+    "telephone": "75-30-34-27",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "SEAD",
@@ -2373,61 +1410,11 @@ const membersData = [
     "accordCadre": "0035/000122",
     "adresse": "Gao",
     "zoneIntervention": "Gao",
-    "responsable": "Dicko Baba Abdou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Dicko Baba Abdou",
+    "fonction": "Président",
+    "telephone": "282-03-02",
+    "email": "sead-gao@yahoo.fr",
+    "recent": false
   },
   {
     "name": "Daouna",
@@ -2436,124 +1423,24 @@ const membersData = [
     "accordCadre": "1979",
     "adresse": "Tombouctou",
     "zoneIntervention": "Mopti, Tombouctou, Gao, Ménaka, Kidal et district de Bamako",
-    "responsable": "Mohamed Mohamed AG Aboubacrine"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Mohamed Mohamed AG Aboubacrine",
+    "fonction": "Président",
+    "telephone": "74-72-79-67",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "ATC",
     "fullName": "Association TILE KOURA pour la Promotion des Femmes Rurales",
     "dateCreation": "2023-07-03 00:00:00",
     "accordCadre": "1998",
-    "adresse": "",
+    "adresse": NaN,
     "zoneIntervention": "Kays, Koulikoro, Sikasso, Ségou, Mopti, Tombouctou, Gao, Kidal, Ménaka et le district de Bamako",
-    "responsable": "Marie Dénou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Marie Dénou",
+    "fonction": "Directrice générale",
+    "telephone": "76 16 74 74",
+    "email": "tilecouraml@gmail.com",
+    "recent": false
   },
   {
     "name": "Almoubaraka",
@@ -2562,61 +1449,11 @@ const membersData = [
     "accordCadre": "2022",
     "adresse": "Gandé Tama (Youwarou)",
     "zoneIntervention": "Koulikoro, Sikasso, Ségou, Mopti, Tombouctou, Gao, Kidal, Ménaka et le district de Bamako",
-    "responsable": "Cissé Oumar"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Cissé Oumar",
+    "fonction": "Président",
+    "telephone": "75-45-39-25",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "A.S.EM",
@@ -2625,70 +1462,11 @@ const membersData = [
     "accordCadre": "2060",
     "adresse": "Kati Fouga",
     "zoneIntervention": "Kays, Koulikoro, Sikasso, Ségou, Mopti, Tombouctou, Gao, Kidal, Ménaka et le district de Bamako",
-    "responsable": "Guindo Halimatou"
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "responsable": "Guindo Halimatou",
+    "fonction": "Présidente",
+    "telephone": "75-34-41-44",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "TDA",
@@ -2697,7 +1475,11 @@ const membersData = [
     "accordCadre": "1452",
     "adresse": "Bamako",
     "zoneIntervention": "Kayes, Kkoro, Sikasso, Mopti, et district de Bamako",
-    "responsable": "Sékou Diarra"
+    "responsable": "Sékou Diarra",
+    "fonction": "Directeur exécutif",
+    "telephone": "20 23 16 31",
+    "email": "terredouceafeique@yahoo.fr",
+    "recent": false
   },
   {
     "name": "CRADE",
@@ -2706,7 +1488,11 @@ const membersData = [
     "accordCadre": "0150/000214",
     "adresse": "Bamako",
     "zoneIntervention": "Sur toute l'étendue du territoire national",
-    "responsable": "Abdoulkadri ZEINOU"
+    "responsable": "Abdoulkadri ZEINOU",
+    "fonction": "Président",
+    "telephone": "76 49 01 82",
+    "email": "crade@afribone.net.ml",
+    "recent": false
   },
   {
     "name": "UAVES",
@@ -2715,16 +1501,24 @@ const membersData = [
     "accordCadre": "1095",
     "adresse": "Gao",
     "zoneIntervention": "Sur toute l'étendue du territoire national",
-    "responsable": "Adama Tiegoum"
+    "responsable": "Adama Tiegoum",
+    "fonction": "Coordinateur",
+    "telephone": "76 08 79 79",
+    "email": "onguaves@yahoo.fr",
+    "recent": false
   },
   {
     "name": "TEKELTTE",
     "fullName": "Association TEKELTTE de Tessalit",
-    "dateCreation": "",
-    "accordCadre": "",
+    "dateCreation": NaN,
+    "accordCadre": NaN,
     "adresse": "Tessalit",
     "zoneIntervention": "Gao, Tombouctou, Kidal, Taoudéni",
-    "responsable": "Sidigaly  Ag Ahmed"
+    "responsable": "Sidigaly  Ag Ahmed",
+    "fonction": "Président",
+    "telephone": "71 27 11 11",
+    "email": "tekeltte2008@gmail.com",
+    "recent": false
   },
   {
     "name": "SELLE",
@@ -2733,7 +1527,11 @@ const membersData = [
     "accordCadre": "0098/000752",
     "adresse": "Bamako",
     "zoneIntervention": "Tombouctou, Gao, Kidal",
-    "responsable": "Fatoumata  Touré"
+    "responsable": "Fatoumata  Touré",
+    "fonction": "Présidente",
+    "telephone": "76 21  51 89",
+    "email": "ongselle99@gmail.com",
+    "recent": false
   },
   {
     "name": "ADM",
@@ -2741,8 +1539,12 @@ const membersData = [
     "dateCreation": "2021-03-30 00:00:00",
     "accordCadre": "1733",
     "adresse": "Bamako",
-    "zoneIntervention": "",
-    "responsable": "Nouhoum  Diarra"
+    "zoneIntervention": NaN,
+    "responsable": "Nouhoum  Diarra",
+    "fonction": "Président",
+    "telephone": "79 23 88 52",
+    "email": "ongadm0679@gmail.com",
+    "recent": false
   },
   {
     "name": "ATK",
@@ -2751,259 +1553,89 @@ const membersData = [
     "accordCadre": "140/2002",
     "adresse": "Bamako",
     "zoneIntervention": "Toute l'étendue du territoire national",
-    "responsable": "Abdellahi Ag Mohamedoun"
+    "responsable": "Abdellahi Ag Mohamedoun",
+    "fonction": "Président",
+    "telephone": "76 75 91 73",
+    "email": "contact@ong-atk.com",
+    "recent": false
   },
   {
     "name": "NOHO",
     "fullName": "Nouveau horizon",
     "dateCreation": "03 Dcembre 2017",
     "accordCadre": "0038/001193",
-    "adresse": "",
+    "adresse": NaN,
     "zoneIntervention": "Toute l'étendue du territoire national",
-    "responsable": "Mohomodou Atayabou"
+    "responsable": "Mohomodou Atayabou",
+    "fonction": "Président",
+    "telephone": "72 82 02 19",
+    "email": "ongnoho200@gmail.com",
+    "recent": false
   },
   {
     "name": "GRAFODEL",
     "fullName": "Groupe de Recherches Actions Formation pour le Développement Local au Mali",
     "dateCreation": "2024-01-15 00:00:00",
     "accordCadre": "2045",
-    "adresse": "",
+    "adresse": NaN,
     "zoneIntervention": "Kayes, Kkoro, Sikasso, Ségou, Mopti, Tombouctou, Gao, Kidal, Ménaka, Douentza, San, Bandiagara, Taoudeni et le dictrict de Bamako",
-    "responsable": "Ousmane  Boiré"
+    "responsable": "Ousmane  Boiré",
+    "fonction": "Président",
+    "telephone": "76 14 22 39",
+    "email": "grafodelmali11@gmail.com",
+    "recent": false
   },
   {
     "name": "CCC",
     "fullName": "Collectif Cri de Cœur",
     "dateCreation": "2019-06-13 00:00:00",
     "accordCadre": "1581",
-    "adresse": "",
+    "adresse": NaN,
     "zoneIntervention": " Kkoro, Sikasso,  Mopti, Tombouctou, Gao, Kidal, Ménaka Taoudeni et le dictrict de Bamako",
-    "responsable": "Almahadi Cissé"
+    "responsable": "Almahadi Cissé",
+    "fonction": "Président",
+    "telephone": "76 10 75 22",
+    "email": "cridecoeurmali@gmail.com",
+    "recent": false
   },
   {
     "name": "ADII Mamli",
     "fullName": "Association pour le Développement inclusif et intégral",
     "dateCreation": "2024-04-17 00:00:00",
     "accordCadre": "2667",
-    "adresse": "",
+    "adresse": NaN,
     "zoneIntervention": "Kayes. ✓ Sikasso. ✓ Ségou. ✓ Mopti. ✓ Gao. ✓ Tombouctou. ✓ Taoudenni. ✓ Ménaka. ✓ Kidal. ✓ District de Bamako.",
-    "responsable": "Achou Dicko"
+    "responsable": "Achou Dicko",
+    "fonction": "Président",
+    "telephone": "76 16 64 25    ",
+    "email": "adiimali343@gmail.com",
+    "recent": false
   },
   {
     "name": "imidierar",
     "fullName": "imidierar (Les vulnérables)",
     "dateCreation": "29 12 2016",
     "accordCadre": "1401",
-    "adresse": "",
+    "adresse": NaN,
     "zoneIntervention": "région de kidal",
-    "responsable": "Checkna Diallo"
+    "responsable": "Checkna Diallo",
+    "fonction": "Président",
+    "telephone": "76 38 31 00",
+    "email": NaN,
+    "recent": false
   },
   {
     "name": "Iamaleh",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
-  },
-  {
-    "name": "",
-    "fullName": "",
-    "dateCreation": "",
-    "accordCadre": "",
-    "adresse": "",
-    "zoneIntervention": "",
-    "responsable": " "
+    "fullName": NaN,
+    "dateCreation": NaN,
+    "accordCadre": NaN,
+    "adresse": NaN,
+    "zoneIntervention": NaN,
+    "responsable": " ",
+    "fonction": NaN,
+    "telephone": NaN,
+    "email": NaN,
+    "recent": false
   }
 ];
 
