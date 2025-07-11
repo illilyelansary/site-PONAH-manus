@@ -59,7 +59,7 @@ const Contact = () => {
       title: 'Adhésion à la PONAH',
       description: 'Informations sur le processus d\'adhésion pour les ONG nationales',
       action: 'Voir les critères',
-      url: '/members'
+      url: '/membres'
     },
     {
       title: 'Partenariats',
@@ -71,7 +71,7 @@ const Contact = () => {
       title: 'Formations',
       description: 'Programmes de renforcement des capacités disponibles',
       action: 'En savoir plus',
-      url: '/formations'
+      url: '/activites'
     },
     {
       title: 'Support technique',
