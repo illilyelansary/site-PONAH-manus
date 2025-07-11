@@ -8,7 +8,7 @@ import { useAuth } from '../contexts/AuthContext';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const { user, isAdmin, login, logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const navigation = [
     { name: 'Accueil', href: '/' },
@@ -53,15 +53,21 @@ export default function Header() {
               </Link>
             ))}
 
-            {/* Bouton admin */}
-            {isAdmin && (
-              user
-                ? <button onClick={logout} className="px-3 py-2 text-sm font-medium text-red-600">
-                    Déconnexion
-                  </button>
-                : <button onClick={() => login({ name: 'Admin', role: 'admin' })} className="px-3 py-2 text-sm font-medium text-green-600">
-                    Connexion Admin
-                  </button>
+            {/* Connexion / Déconnexion */}
+            {user ? (
+              <button
+                onClick={logout}
+                className="px-3 py-2 text-sm font-medium text-red-600 hover:text-red-800"
+              >
+                Déconnexion
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="px-3 py-2 text-sm font-medium text-green-600 hover:text-green-800"
+              >
+                Connexion
+              </Link>
             )}
           </nav>
 
@@ -95,21 +101,22 @@ export default function Header() {
                 </Link>
               ))}
 
-              {/* Bouton admin mobile */}
-              {isAdmin && (
-                user
-                  ? <button
-                      onClick={() => { logout(); setIsMenuOpen(false); }}
-                      className="block w-full text-left px-3 py-2 text-red-600"
-                    >
-                      Déconnexion
-                    </button>
-                  : <button
-                      onClick={() => { login({ name: 'Admin', role: 'admin' }); setIsMenuOpen(false); }}
-                      className="block w-full text-left px-3 py-2 text-green-600"
-                    >
-                      Connexion Admin
-                    </button>
+              {/* Connexion / Déconnexion mobile */}
+              {user ? (
+                <button
+                  onClick={() => { logout(); setIsMenuOpen(false); }}
+                  className="block w-full text-left px-3 py-2 text-red-600 hover:text-red-800"
+                >
+                  Déconnexion
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block px-3 py-2 text-base font-medium text-green-600 hover:text-green-800"
+                >
+                  Connexion
+                </Link>
               )}
             </div>
           </div>
