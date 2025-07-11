@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-// Components
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/pages/Home';
@@ -13,28 +12,25 @@ import Activities from './components/pages/Activities';
 import Publications from './components/pages/Publications';
 import News from './components/pages/News';
 import Contact from './components/pages/Contact';
-// On importe désormais la page de connexion
-import Login from './components/pages/Login';
++ import Admin from './components/pages/Admin';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />            {/* ← Route de connexion */}
-            <Route path="/apropos" element={<About />} />
-            <Route path="/membres" element={<Members />} />
-            <Route path="/activites" element={<Activities />} />
-            <Route path="/publications" element={<Publications />} />
-            <Route path="/actualites" element={<News />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Header />
+      <main className="flex-grow">
+        <Routes>
++         <Route path="/admin" element={<Admin />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/apropos" element={<About />} />
+          <Route path="/membres" element={<Members />} />
+          <Route path="/activites" element={<Activities />} />
+          <Route path="/publications" element={<Publications />} />
+          <Route path="/actualites" element={<News />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+      <Footer />
     </Router>
   );
 }
