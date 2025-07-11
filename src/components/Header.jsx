@@ -1,27 +1,14 @@
-import React, { useState } from 'react';
+// src/components/Header.jsx
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import LogoPonah from '../assets/LogoPonah.png'; // Import the new logo
-
-import React from 'react';
-+ import { useAuth } from '../contexts/AuthContext';
+import LogoPonah from '../assets/LogoPonah.png';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Header() {
-+ const { user, isAdmin, login, logout } = useAuth();
-
-  return (
-    <header> 
-+     {user
-+       ? <button onClick={logout}>Déconnexion ({user.name})</button>
-+       : <button onClick={() => login({ name: 'Admin', role: 'admin' })}>
-+           Se connecter en admin
-+         </button>
-+     }
-      … ton menu …
-
-const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { user, isAdmin, login, logout } = useAuth();
 
   const navigation = [
     { name: 'Accueil', href: '/' },
@@ -51,7 +38,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -65,6 +52,17 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
+
+            {/* Bouton admin */}
+            {isAdmin && (
+              user
+                ? <button onClick={logout} className="px-3 py-2 text-sm font-medium text-red-600">
+                    Déconnexion
+                  </button>
+                : <button onClick={() => login({ name: 'Admin', role: 'admin' })} className="px-3 py-2 text-sm font-medium text-green-600">
+                    Connexion Admin
+                  </button>
+            )}
           </nav>
 
           {/* Mobile menu button */}
@@ -80,8 +78,8 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+          <div className="md:hidden bg-white border-t">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -96,12 +94,27 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+
+              {/* Bouton admin mobile */}
+              {isAdmin && (
+                user
+                  ? <button
+                      onClick={() => { logout(); setIsMenuOpen(false); }}
+                      className="block w-full text-left px-3 py-2 text-red-600"
+                    >
+                      Déconnexion
+                    </button>
+                  : <button
+                      onClick={() => { login({ name: 'Admin', role: 'admin' }); setIsMenuOpen(false); }}
+                      className="block w-full text-left px-3 py-2 text-green-600"
+                    >
+                      Connexion Admin
+                    </button>
+              )}
             </div>
           </div>
         )}
       </div>
     </header>
   );
-};
-
-export default Header;
+}
