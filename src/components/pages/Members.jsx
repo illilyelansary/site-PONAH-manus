@@ -1,6 +1,13 @@
+// src/components/pages/Members.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Search, Users, X, ArrowRight } from 'lucide-react';
+import {
+  Search,
+  Users,
+  FileText,
+  CreditCard,
+  CheckCircle,
+  X
+} from 'lucide-react';
 import membersData from '../../data/membersData';
 
 const Members = () => {
@@ -14,10 +21,15 @@ const Members = () => {
   const recentMembers = membersData.filter(member => member.recent === true);
   const totalMembers = membersData.length;
   const totalRecent = recentMembers.length;
-  const uniqueZones = [...new Set(membersData.map(m => m.zoneIntervention).filter(Boolean))].length;
+  const uniqueZones = [
+    ...new Set(
+      membersData.map(m => m.zoneIntervention).filter(Boolean)
+    )
+  ].length;
 
   return (
     <div className="min-h-screen">
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Nos Membres</h1>
@@ -53,9 +65,9 @@ const Members = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-          {recentMembers.map((member, index) => (
+          {recentMembers.map((member, i) => (
             <div
-              key={index}
+              key={i}
               className="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary cursor-pointer"
               onClick={() => setSelectedMember(member)}
             >
@@ -65,7 +77,7 @@ const Members = () => {
         </div>
       </section>
 
-      {/* Barre de recherche + liste complète */}
+      {/* Recherche + Liste complète */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
@@ -83,16 +95,16 @@ const Members = () => {
                 placeholder="Rechercher une ONG..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={e => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredMembers.map((member, index) => (
+            {filteredMembers.map((member, idx) => (
               member.name && (
                 <div
-                  key={index}
+                  key={idx}
                   className="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md cursor-pointer"
                   onClick={() => setSelectedMember(member)}
                 >
@@ -140,90 +152,96 @@ const Members = () => {
         </div>
       )}
 
-      {/* Section Devenir membre */}
-      <section className="py-20 bg-primary/5 mt-16">
+      {/* Rejoindre la PONAH */}
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Rejoindre la PONAH</h2>
-          <p className="text-lg text-gray-700 mb-6">
-            Toute ONG nationale légalement constituée, intervenant dans le domaine humanitaire au Mali,
-            et adhérant aux statuts et règlement intérieur de la PONAH, peut faire une demande d’adhésion.
+          <h2 className="text-3xl font-bold mb-4">Rejoindre la PONAH</h2>
+          <p className="text-lg text-gray-700 mb-8">
+            L’adhésion à la PONAH est libre et volontaire pour toute ONG nationale qui accepte nos statuts
           </p>
-          <ul className="text-left max-w-2xl mx-auto text-gray-700 mb-6 list-disc list-inside">
-            <li>Lettre de demande adressée au Président</li>
-            <li>Copie de l’accord cadre</li>
-            <li>Paiement de la cotisation annuelle et frais d’adhésion</li>
-            <li>Engagement à respecter la charte des membres</li>
-          </ul>
+
+          {/* 4 étapes */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div className="space-y-2">
+              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <FileText className="w-8 h-8 text-green-600" />
+              </div>
+              <h4 className="text-green-600 font-semibold">Étape 1</h4>
+              <h3 className="font-semibold text-gray-900">Demande d’adhésion</h3>
+              <p className="text-gray-600 text-sm">
+                Soumettre une demande timbrée adressée au Président de la PONAH
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <CheckCircle className="w-8 h-8 text-green-600" />
+              </div>
+              <h4 className="text-green-600 font-semibold">Étape 2</h4>
+              <h3 className="font-semibold text-gray-900">Accord Cadre</h3>
+              <p className="text-gray-600 text-sm">
+                Fournir l’Accord Cadre de votre organisation
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <CreditCard className="w-8 h-8 text-green-600" />
+              </div>
+              <h4 className="text-green-600 font-semibold">Étape 3</h4>
+              <h3 className="font-semibold text-gray-900">Frais d’adhésion</h3>
+              <p className="text-gray-600 text-sm">
+                Libérer les frais d’adhésion de 50 000 FCFA (non remboursable)
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <Users className="w-8 h-8 text-green-600" />
+              </div>
+              <h4 className="text-green-600 font-semibold">Étape 4</h4>
+              <h3 className="font-semibold text-gray-900">Cotisation annuelle</h3>
+              <p className="text-gray-600 text-sm">
+                S’engager à payer la cotisation annuelle de 50 000 FCFA
+              </p>
+            </div>
+          </div>
+
+          {/* Critères */}
+          <div className="bg-green-50 p-8 rounded-lg mb-8">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Critères d’Adhésion</h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <span>Être une ONG nationale légalement reconnue</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <span>Intervenir dans le domaine humanitaire</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <span>Accepter les statuts et règlement intérieur</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <span>Disposer d’un Accord Cadre valide</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <span>S’acquitter des frais d’adhésion et cotisations</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <span>Respecter la charte des membres</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Bouton */}
           <a
             href="mailto:ponah.mali@gmail.com"
-            className="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium"
+            className="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold"
           >
-            Demander l'adhésion
+            Demander l’adhésion
           </a>
-        </div>
-      </section>
-
-      {/* Équipe Dirigeante & FAQ */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Notre Équipe Dirigeante</h2>
-          <p className="text-center text-gray-600 mb-12">Rencontrez les responsables qui dirigent la PONAH</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center space-y-2">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <Users className="text-primary w-8 h-8" />
-              </div>
-              <h3 className="font-semibold">El Mehdi Ag WAKINA</h3>
-              <p className="text-sm text-gray-500">Président</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <Users className="text-primary w-8 h-8" />
-              </div>
-              <h3 className="font-semibold">Moussa A DIALLO</h3>
-              <p className="text-sm text-gray-500">Vice-Président</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <Users className="text-primary w-8 h-8" />
-              </div>
-              <h3 className="font-semibold">Dianguina SOUMARE</h3>
-              <p className="text-sm text-gray-500">Secrétaire Général</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <Users className="text-primary w-8 h-8" />
-              </div>
-              <h3 className="font-semibold">Alidji Guitteye</h3>
-              <p className="text-sm text-gray-500">Trésorier Général</p>
-            </div>
-          </div>
-
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Questions Fréquemment Posées</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-                <h4 className="font-semibold mb-2">Comment adhérer à la PONAH ?</h4>
-                <p className="text-gray-600 mb-2">L'adhésion nécessite une demande timbrée, un Accord Cadre, le paiement des frais d'adhésion (50 000 FCFA) et l'engagement à payer la cotisation annuelle.</p>
-                <Link to="/membres" className="text-primary font-medium hover:underline">Voir les détails <ArrowRight className="inline w-4 h-4 ml-1" /></Link>
-              </div>
-              <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-                <h4 className="font-semibold mb-2">Quels sont les avantages d'être membre ?</h4>
-                <p className="text-gray-600 mb-2">Accès aux formations, participation aux mécanismes de coordination, opportunités de financement et renforcement des capacités.</p>
-                <Link to="/members" className="text-primary font-medium hover:underline">En savoir plus <ArrowRight className="inline w-4 h-4 ml-1" /></Link>
-              </div>
-              <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-                <h4 className="font-semibold mb-2">Comment collaborer avec la PONAH ?</h4>
-                <p className="text-gray-600 mb-2">Nous sommes ouverts aux partenariats avec les organisations internationales, bailleurs de fonds et institutions gouvernementales.</p>
-                <Link to="/contact" className="text-primary font-medium hover:underline">Nous contacter <ArrowRight className="inline w-4 h-4 ml-1" /></Link>
-              </div>
-              <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-                <h4 className="font-semibold mb-2">Où intervient la PONAH ?</h4>
-                <p className="text-gray-600 mb-2">La PONAH couvre l'ensemble du territoire malien avec ses 130+ ONG membres réparties dans toutes les régions.</p>
-                <Link to="/carte" className="text-primary font-medium hover:underline">Voir la carte <ArrowRight className="inline w-4 h-4 ml-1" /></Link>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </div>
