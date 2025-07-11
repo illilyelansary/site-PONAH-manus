@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Heart } from 'lucide-react';
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -16,12 +16,15 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-xl font-bold">PONAH</h3>
-                <p className="text-gray-300 text-sm">Plateforme des ONG Nationales Actives dans l'Humanitaire</p>
+                <p className="text-gray-300 text-sm">
+                  Plateforme des ONG Nationales Actives dans l'Humanitaire
+                </p>
               </div>
             </div>
             <p className="text-gray-300 mb-4">
-              Unissons nos forces pour sauver des vies au Mali. Notre sens de l'humanité nous interpelle, 
-              agissons maintenant pour un impact durable !
+              Unissons nos forces pour sauver des vies au Mali. Notre sens de
+              l'humanité nous interpelle, agissons maintenant pour un impact
+              durable !
             </p>
             <div className="flex items-center space-x-2 text-accent">
               <Heart size={20} />
@@ -33,13 +36,46 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Liens Rapides</h4>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Accueil</Link></li>
-              <li><Link to="/apropos" className="text-gray-300 hover:text-white transition-colors">À Propos</Link></li>
-              <li><Link to="/membres" className="text-gray-300 hover:text-white transition-colors">Nos Membres</Link></li>
-              <li><Link to="/activites" className="text-gray-300 hover:text-white transition-colors">Nos Activités</Link></li>
-              <li><Link to="/publications" className="text-gray-300 hover:text-white transition-colors">Publications</Link></li>
-              <li><Link to="/actualites" className="text-gray-300 hover:text-white transition-colors">Actualités</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
+              <li>
+                <Link
+                  to="/apropos"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  À Propos
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/membres"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Nos Membres
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/activites"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Nos Activités
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/publications"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Publications
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/actualites"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Actualités
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -48,10 +84,17 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <MapPin size={20} className="text-primary mt-1 flex-shrink-0" />
+                <MapPin
+                  size={20}
+                  className="text-primary mt-1 flex-shrink-0"
+                />
                 <div>
-                  <p className="text-gray-300 text-sm">Rue 737 Porte 419</p>
-                  <p className="text-gray-300 text-sm">Banankabougou, Bamako, Mali</p>
+                  <p className="text-gray-300 text-sm">
+                    Rue 737 Porte 419
+                  </p>
+                  <p className="text-gray-300 text-sm">
+                    Banankabougou, Bamako, Mali
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
@@ -60,7 +103,9 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} className="text-primary flex-shrink-0" />
-                <p className="text-gray-300 text-sm">ponah.mali@gmail.com</p>
+                <p className="text-gray-300 text-sm">
+                  ponah.mali@gmail.com
+                </p>
               </div>
             </div>
           </div>
@@ -70,7 +115,7 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} PONAH. Tous droits réservés.
+              © 2024 PONAH. Tous droits réservés.
             </p>
             <p className="text-gray-400 text-sm mt-2 md:mt-0">
               Enregistrée sous le N° 00003 MATD-DGAT
@@ -80,4 +125,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
