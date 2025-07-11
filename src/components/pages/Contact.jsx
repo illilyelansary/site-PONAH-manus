@@ -1,321 +1,230 @@
-// src/components/pages/Contact.jsx
-import React, { useState } from 'react'
-import { Mail, Phone, MapPin, Clock, Send, User, MessageSquare } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Users, Target, Globe, Heart, Shield, Handshake } from 'lucide-react';
+import heroImage from '../../assets/hero-image.jpg';
+import communityImage1 from '../../assets/community-1.jpg';
+import communityImage2 from '../../assets/community-2.jpg';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    organization: '',
-    subject: '',
-    message: ''
-  })
+const Home = () => {
+  const stats = [
+    { number: '130+', label: 'ONG Membres', icon: Users },
+    { number: '7.2M', label: 'Personnes dans le besoin', icon: Heart },
+    { number: '13', label: 'Domaines d\'intervention', icon: Target },
+    { number: '100%', label: 'Territoire malien couvert', icon: Globe },
+  ];
 
-  const handleChange = e => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    console.log('Formulaire soumis:', formData)
-    alert('Votre message a été envoyé avec succès !')
-    setFormData({
-      name: '',
-      email: '',
-      organization: '',
-      subject: '',
-      message: ''
-    })
-  }
-
-  const contactInfo = [
+  const values = [
     {
-      icon: MapPin,
-      title: 'Adresse',
-      details: [
-        'Secrétariat Permanent',
-        'Rue 737 Porte 419',
-        'Banankabougou, Bamako, Mali'
-      ]
+      icon: Heart,
+      title: 'Humanité',
+      description: 'Respect des principes humanitaires d\'humanité, d\'impartialité, de neutralité et d\'indépendance'
     },
     {
-      icon: Phone,
-      title: 'Téléphone',
-      details: ['+223 79 37 16 43']
+      icon: Shield,
+      title: 'Dignité',
+      description: 'La dignité de tous les êtres humains indépendamment de leurs appartenances'
     },
     {
-      icon: Mail,
-      title: 'Email',
-      details: ['ponah.mali@gmail.com']
-    },
-    {
-      icon: Clock,
-      title: 'Horaires',
-      details: [
-        'Lundi - Vendredi: 8h00 - 17h00',
-        'Samedi: 8h00 - 12h00',
-        'Dimanche: Fermé'
-      ]
+      icon: Handshake,
+      title: 'Équité',
+      description: 'L\'équité et l\'égalité du genre dans toutes nos interventions'
     }
-  ]
+  ];
 
-  const quickLinks = [
+  const recentNews = [
     {
-      title: 'À Propos',
-      description: 'En savoir plus sur la PONAH et notre mission',
-      action: 'Découvrir →',
-      url: '/apropos'
+      title: 'Atelier de restitution du Baromètre de la Localisation',
+      date: '29-30 octobre 2024',
+      description: 'Validation des 9 axes stratégiques pour l\'élaboration de la Stratégie Nationale de Localisation.'
     },
     {
-      title: 'Nos Membres',
-      description: 'Consultez la liste complète des ONG adhérentes',
-      action: 'Voir la liste →',
-      url: '/membres'
+      title: 'Formation de 360 acteurs sur la gestion des risques de sécurité',
+      date: 'Novembre-Décembre 2024',
+      description: 'Renforcement des capacités de 72 OSC dans les régions de Mopti, Ségou et Gao.'
     },
     {
-      title: 'Nos Activités',
-      description: 'Découvrez nos projets et interventions',
-      action: 'Explorer →',
-      url: '/activites'
-    },
-    {
-      title: 'Publications',
-      description: 'Accédez à nos rapports et études',
-      action: 'Accéder →',
-      url: '/publications'
+      title: 'Mission de plaidoyer au Qatar',
+      date: '16-20 septembre 2024',
+      description: 'Mission conjointe FONGIM-PONAH pour mobiliser des financements humanitaires.'
     }
-  ]
+  ];
 
   return (
     <div className="min-h-screen">
-
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contactez-nous</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Nous sommes là pour répondre à vos questions et vous accompagner dans vos démarches
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+            Unissons nos forces pour sauver des vies au Mali
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 animate-fade-in-delay">
+            Notre sens de l'humanité nous interpelle, agissons maintenant pour un impact durable !
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
+            <Link 
+              to="/apropos" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group"
+            >
+              Découvrir la PONAH
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            </Link>
+            <Link 
+              to="/membres" 
+              className="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300"
+            >
+              Rejoindre la plateforme
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Coordonnées */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Nos Coordonnées</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Plusieurs moyens pour nous joindre et échanger avec notre équipe
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contactInfo.map((info, idx) => (
-              <div key={idx} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <info.icon className="w-8 h-8 text-primary" />
+      {/* Stats Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 group-hover:bg-primary/20 transition-colors">
+                  <stat.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">{info.title}</h3>
-                <div className="space-y-1">
-                  {info.details.map((line, i) => (
-                    <p key={i} className="text-gray-600 text-sm">{line}</p>
-                  ))}
-                </div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Formulaire */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Envoi de message */}
-          <div className="bg-white p-8 rounded-lg shadow-md">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Envoyez-nous un message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nom complet *
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
-                      placeholder="votre@email.com"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">
-                  Organisation
-                </label>
-                <input
-                  type="text"
-                  id="organization"
-                  name="organization"
-                  value={formData.organization}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
-                  placeholder="Nom de votre organisation"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                  Sujet *
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  required
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
-                >
-                  <option value="">Sélectionnez un sujet</option>
-                  <option value="adhesion">Demande d'adhésion</option>
-                  <option value="partenariat">Partenariat</option>
-                  <option value="formation">Formation</option>
-                  <option value="information">Demande d'information</option>
-                  <option value="support">Support technique</option>
-                  <option value="autre">Autre</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message *
-                </label>
-                <div className="relative">
-                  <MessageSquare className="absolute left-3 top-3 text-gray-400" size={20} />
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary resize-none"
-                    placeholder="Décrivez votre demande en détail..."
-                  />
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center"
+      {/* Mission Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Notre Mission
+              </h2>
+              <p className="text-lg text-gray-600 mb-6">
+                La Plateforme des ONG Nationales Actives dans l'Humanitaire (PONAH) a pour mission de 
+                renforcer la coordination des interventions humanitaires au Mali en mutualisant les 
+                expériences, expertises et ressources de ses membres.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Renforcer la coordination des interventions des ONG membres',
+                  'Mutualiser les expériences et les ressources',
+                  'Promouvoir l\'approche « localisation »',
+                  'Engager des actions de plaidoyer'
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link 
+                to="/apropos" 
+                className="inline-flex items-center text-primary hover:text-primary/80 font-semibold group"
               >
-                <Send className="w-5 h-5 mr-2" /> Envoyer le message
-              </button>
-            </form>
-          </div>
-
-          {/* Liens rapides & FAQ & Équipe */}
-          <div className="space-y-8">
-            {/* Notre Équipe Dirigeante */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Notre Équipe Dirigeante</h3>
-              <p className="text-gray-600 mb-6">Rencontrez les responsables qui dirigent la PONAH</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { name: 'El Mehdi Ag WAKINA', role: 'Président' },
-                  { name: 'Moussa A DIALLO', role: 'Vice-Président' },
-                  { name: 'Dainguina SOUMARE', role: 'Secrétaire Général' },
-                  { name: 'Ali­dji Guti­taye', role: 'Trésorier Général' }
-                ].map((member, i) => (
-                  <div key={i} className="text-center">
-                    <div className="mx-auto mb-3 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Users className="w-6 h-6 text-primary" />
-                    </div>
-                    <h4 className="font-medium">{member.name}</h4>
-                    <p className="text-sm text-gray-500">{member.role}</p>
-                  </div>
-                ))}
-              </div>
+                En savoir plus
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
             </div>
-
-            {/* Questions Fréquentes */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Questions Fréquentes</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  {
-                    q: 'Comment adhérer à la PONAH ?',
-                    a: "L'adhésion nécessite une demande timbrée, un Accord Cadre, le paiement des frais d'adhésion (50 000 FCFA) et l'engagement à payer la cotisation annuelle."
-                  },
-                  {
-                    q: "Quels sont les avantages d'être membre ?",
-                    a: "Accès aux formations, participation aux mécanismes de coordination, opportunités de financement et renforcement des capacités."
-                  },
-                  {
-                    q: 'Comment collaborer avec la PONAH ?',
-                    a: "Nous sommes ouverts aux partenariats avec les organisations internationales, les bailleurs de fonds et les instituts gouvernementaux."
-                  },
-                  {
-                    q: 'Où intervient la PONAH ?',
-                    a: "La PONAH couvre l’ensemble du territoire malien avec ses 130+ ONG membres réparties dans toutes les régions du pays."
-                  }
-                ].map((faq, i) => (
-                  <div key={i} className="border-l-4 border-primary pl-4">
-                    <h4 className="font-medium text-gray-900 mb-1">{faq.q}</h4>
-                    <p className="text-sm text-gray-600">{faq.a}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Liens Rapides */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Liens Rapides</h3>
-              <div className="space-y-4">
-                {quickLinks.map((link, i) => (
-                  <div key={i} className="border-l-4 border-primary pl-4">
-                    <h4 className="font-medium text-gray-900">{link.title}</h4>
-                    <p className="text-sm text-gray-600 mb-2">{link.description}</p>
-                    <Link to={link.url} className="text-primary hover:text-primary/80 text-sm font-medium">
-                      {link.action}
-                    </Link>
-                  </div>
-                ))}
-              </div>
+            <div className="relative">
+              <img 
+                src={communityImage1} 
+                alt="Communauté bénéficiaire" 
+                className="rounded-lg shadow-xl"
+              />
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary/20 rounded-lg -z-10"></div>
             </div>
           </div>
         </div>
       </section>
 
-    </div>
-  )
-}
+      {/* Values Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Nos Valeurs</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              La PONAH repose sur des valeurs cardinales qui guident toutes nos actions
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
+                  <value.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
+                <p className="text-gray-600">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-export default Contact
+      {/* Recent News Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900">Actualités Récentes</h2>
+            <Link 
+              to="/actualites" 
+              className="text-primary hover:text-primary/80 font-semibold flex items-center group"
+            >
+              Voir toutes les actualités
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {recentNews.map((news, index) => (
+              <article key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="p-6">
+                  <div className="text-sm text-primary font-medium mb-2">{news.date}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{news.title}</h3>
+                  <p className="text-gray-600 line-clamp-3">{news.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-primary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Rejoignez-nous dans notre mission
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Ensemble, nous pouvons faire une différence significative et durable pour ceux qui en ont le plus besoin
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              to="/membres" 
+              className="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors"
+            >
+              Devenir membre
+            </Link>
+            <Link 
+              to="/contact" 
+              className="bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300"
+            >
+              Nous contacter
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
