@@ -1,47 +1,34 @@
-// src/contexts/AuthContext.jsx
-import React, { createContext, useContext, useState, useEffect } from 'react';
+const [user, setUser] = useState(null);
++ const [token, setToken] = useState(null);
 
-// 1. Crée le contexte avec les valeurs par défaut
-const AuthContext = createContext({
-  user: null,
-  isAdmin: false,
-  login: () => {},
-  logout: () => {}
-});
+useEffect(() => {
+-  const stored = window.localStorage.getItem('currentUser');
+-  if (stored) setUser(JSON.parse(stored));
++  const storedUser  = window.localStorage.getItem('currentUser');
++  const storedToken = window.localStorage.getItem('authToken');
++  if (storedUser && storedToken) {
++    setUser(JSON.parse(storedUser));
++    setToken(storedToken);
++  }
+}, []);
 
-// 2. Le Provider qui enveloppe toute l’app
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+const login = ({ user: u, token: t }) => {
+- setUser(userData);
++ window.localStorage.setItem('currentUser', JSON.stringify(u));
++ window.localStorage.setItem('authToken', t);
++ setUser(u);
++ setToken(t);
+};
 
-  // Au montage, on peut récupérer l’utilisateur stocké en localStorage (ou cookie)
-  useEffect(() => {
-    const stored = window.localStorage.getItem('currentUser');
-    if (stored) setUser(JSON.parse(stored));
-  }, []);
+const logout = () => {
+  window.localStorage.removeItem('currentUser');
++ window.localStorage.removeItem('authToken');
+  setUser(null);
++ setToken(null);
+};
 
-  // Fonction pour “connecter” : tu appelleras ton API login, ici on simule
-  const login = (userData) => {
-    window.localStorage.setItem('currentUser', JSON.stringify(userData));
-    setUser(userData);
-  };
-
-  // Fonction pour “déconnecter”
-  const logout = () => {
-    window.localStorage.removeItem('currentUser');
-    setUser(null);
-  };
-
-  // Détermine si c’est un admin (selon ton schéma : role === 'admin')
-  const isAdmin = user?.role === 'admin';
-
-  return (
-    <AuthContext.Provider value={{ user, isAdmin, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
-}
-
-// Hook pour y accéder facilement
-export function useAuth() {
-  return useContext(AuthContext);
-}
+return (
+  <AuthContext.Provider value={{ user, token, isAdmin, login, logout }}>
+    {children}
+  </AuthContext.Provider>
+);
