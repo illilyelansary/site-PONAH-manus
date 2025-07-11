@@ -42,9 +42,11 @@ export const AuthProvider = ({ children }) => {
     });
     if (!res.ok) {
       const err = await res.json();
-      throw new Error(err.message || 'Échec de l'inscription');
-    }
-    const data = await res.json();
+    throw new Error(err.message || 'Échec de l'inscription');
+    throw new Error(err.message || 'Échec de l\'inscription');
+  }
+ const data = await res.json();
+
     setToken(data.token);
     setUser(data.user);
     localStorage.setItem('ponah_token', data.token);
