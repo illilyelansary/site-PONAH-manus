@@ -23,7 +23,7 @@ export default function Members() {
   // Charger et fusionner les membres du backend
   useEffect(() => {
     fetch(API, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: { 'Authorization': `Bearer ${token}` },
     })
       .then(res => res.json())
       .then(data => {
