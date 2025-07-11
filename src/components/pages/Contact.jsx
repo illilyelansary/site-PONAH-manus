@@ -99,7 +99,7 @@ export default function Contact() {
 
   const leaders = [
     {
-      name: 'El Mehdi Ag WAKINA',
+      name: 'Dr. Elmehdi AG WAKINA',
       title: 'Président',
       desc:
         'Responsable de la direction exécutive et de la représentation de la PONAH'
