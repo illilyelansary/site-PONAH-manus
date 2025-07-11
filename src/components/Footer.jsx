@@ -32,11 +32,31 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Liens Rapides</h4>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">À Propos</Link></li>
-              <li><Link to="/members" className="text-gray-300 hover:text-white transition-colors">Nos Membres</Link></li>
-              <li><Link to="/activities" className="text-gray-300 hover:text-white transition-colors">Nos Activités</Link></li>
-              <li><Link to="/publications" className="text-gray-300 hover:text-white transition-colors">Publications</Link></li>
-              <li><Link to="/news" className="text-gray-300 hover:text-white transition-colors">Actualités</Link></li>
+              <li>
+                <Link to="/apropos" className="text-gray-300 hover:text-white transition-colors">
+                  À Propos
+                </Link>
+              </li>
+              <li>
+                <Link to="/membres" className="text-gray-300 hover:text-white transition-colors">
+                  Nos Membres
+                </Link>
+              </li>
+              <li>
+                <Link to="/activites" className="text-gray-300 hover:text-white transition-colors">
+                  Nos Activités
+                </Link>
+              </li>
+              <li>
+                <Link to="/publications" className="text-gray-300 hover:text-white transition-colors">
+                  Publications
+                </Link>
+              </li>
+              <li>
+                <Link to="/actualites" className="text-gray-300 hover:text-white transition-colors">
+                  Actualités
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -76,8 +96,6 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+);
 
 export default Footer;
-
