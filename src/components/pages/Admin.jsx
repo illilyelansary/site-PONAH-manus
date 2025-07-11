@@ -1,89 +1,56 @@
 // src/components/pages/Admin.jsx
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import Members from './Members';
 import { useAuth } from '../../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 export default function Admin() {
-  const { login, signup, user } = useAuth();
-  const navigate = useNavigate();
-  const [mode, setMode] = useState<'login'|'signup'>('login');
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const { user, login, logout } = useAuth();
+  const [username, setUsername] = useState('');
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setForm(f => ({ ...f, [name]: value }));
-  };
-
-  const handleSubmit = async e => {
+  const handleLogin = e => {
     e.preventDefault();
-    try {
-      if (mode === 'login') {
-        await login({ email: form.email, password: form.password });
-      } else {
-        await signup({ name: form.name, email: form.email, password: form.password });
-      }
-      navigate('/'); // rediriger après succès
-    } catch (err) {
-      alert(err.message);
-    }
+    // Simple admin login: you could integrate real auth here
+    login({ name: username, role: 'admin' });
   };
 
-  if (user) {
+  // If not logged in, show login form
+  if (!user) {
     return (
-      <div className="max-w-md mx-auto p-6 text-center">
-        <h2 className="text-2xl font-bold mb-4">Bienvenue, {user.name}</h2>
-        <p>Vous êtes déjà connecté.</p>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <form onSubmit={handleLogin} className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+          <h2 className="text-2xl font-bold mb-6 text-center">Connexion Admin</h2>
+          <input
+            type="text"
+            placeholder="Nom d'utilisateur"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            className="w-full mb-4 px-3 py-2 border rounded"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-primary text-white py-2 rounded font-medium"
+          >
+            Se connecter
+          </button>
+        </form>
       </div>
     );
   }
 
+  // If logged in as admin, render Members management
   return (
-    <div className="max-w-md mx-auto p-6 space-y-6">
-      <div className="flex justify-center space-x-4">
+    <div className="min-h-screen bg-gray-50">
+      <div className="flex justify-end p-4">
         <button
-          className={`px-4 py-2 rounded ${mode==='login' ? 'bg-primary text-white' : 'bg-gray-200'}`}
-          onClick={() => setMode('login')}
-        >Connexion</button>
-        <button
-          className={`px-4 py-2 rounded ${mode==='signup' ? 'bg-primary text-white' : 'bg-gray-200'}`}
-          onClick={() => setMode('signup')}
-        >Inscription</button>
-      </div>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {mode === 'signup' && (
-          <input
-            type="text"
-            name="name"
-            placeholder="Nom complet"
-            value={form.name}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
-            required
-          />
-        )}
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border rounded"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Mot de passe"
-          value={form.password}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border rounded"
-          required
-        />
-        <button type="submit" className="w-full bg-primary text-white py-2 rounded">
-          {mode === 'login' ? 'Se connecter' : 'S’inscrire'}
+          onClick={logout}
+          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        >
+          Déconnexion
         </button>
-      </form>
+      </div>
+      <Members />
     </div>
   );
 }
