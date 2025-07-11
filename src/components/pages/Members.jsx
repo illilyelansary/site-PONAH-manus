@@ -1,14 +1,17 @@
 // src/components/pages/Members.jsx
 import React, { useState, useEffect } from 'react';
 import { Search, Users, X } from 'lucide-react';
+import membersDataStatic from '../../data/membersData';
 
-const API = 'https://ponah-backend.onrender.com/members';
+const API = 'https://ponah-backend.onrender.com/api/members';
 
 export default function Members() {
-  // States
-  const [members, setMembers] = useState([]);
+  // 1️⃣ State : membres (fusion statique + backend)
+  const [members, setMembers] = useState(membersDataStatic);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMember, setSelectedMember] = useState(null);
+
+  // 2️⃣ Formulaire
   const [formData, setFormData] = useState({
     name: '',
     fullName: '',
@@ -23,27 +26,40 @@ export default function Members() {
     recent: true
   });
 
-  // 1. Charger les membres depuis le backend
+  // 3️⃣ Charger les membres depuis le backend et fusionner
   useEffect(() => {
     fetch(API)
       .then(res => res.json())
-      .then(data => setMembers(data))
-      .catch(err => console.error('Erreur chargement membres :', err));
+      .then(data => {
+        // éviter les doublons : on ne réajoute que ceux non présents
+        const existingNames = new Set(membersDataStatic.map(m => m.name));
+        const backOnly = data.filter(m => !existingNames.has(m.name));
+        setMembers([...membersDataStatic, ...backOnly]);
+      })
+      .catch(err => console.error('Erreur chargement backend :', err));
   }, []);
 
-  // 2. Requête POST pour ajouter un membre
-  const handleSubmit = async (e) => {
+  // 4️⃣ Gestion du formulaire
+  const handleChange = e => {
+    const { name, value, type, checked } = e.target;
+    setFormData(fd => ({
+      ...fd,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = async e => {
     e.preventDefault();
     try {
       const res = await fetch(API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
-      if (!res.ok) throw new Error('Échec de l’enregistrement');
-      // Mettre à jour localement sans recharger
-      setMembers(prev => [...prev, formData]);
-      // Réinitialiser le form
+      if (!res.ok) throw new Error('échec enregistrement');
+      // mise à jour immédiate
+      setMembers(m => [...m, formData]);
+      // reset form
       setFormData({
         name: '',
         fullName: '',
@@ -60,28 +76,19 @@ export default function Members() {
       alert('Membre ajouté !');
     } catch (err) {
       console.error(err);
-      alert('Erreur lors de l’ajout du membre');
+      alert('Erreur lors de l’ajout du membre.');
     }
   };
 
-  // 3. Gestion des champs du formulaire
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(fd => ({
-      ...fd,
-      [name]: type === 'checkbox' ? checked : value
-    }));
-  };
-
-  // 4. Filtrage pour la recherche
+  // 5️⃣ Recherche
   const filtered = members.filter(m =>
     m.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // 5. Calcul statistiques
+  // 6️⃣ Statistiques
   const totalMembers = members.length;
-  const recentCount = members.filter(m => m.recent).length;
   const uniqueZones = [...new Set(members.map(m => m.zoneIntervention).filter(Boolean))].length;
+  const recentCount = members.filter(m => m.recent).length;
 
   return (
     <div className="min-h-screen">
@@ -106,14 +113,16 @@ export default function Members() {
         </div>
       </section>
 
-      {/* Nouveaux Membres */}
+      {/* Nouveaux Membres 2024 */}
       <section className="py-16 bg-white text-center">
         <h2 className="text-3xl font-bold mb-4">Nouveaux Membres 2024</h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {members.filter(m => m.recent).map((m,i) => (
-            <div key={i}
-                 onClick={() => setSelectedMember(m)}
-                 className="p-4 border-l-4 border-primary rounded shadow cursor-pointer hover:bg-gray-50">
+            <div
+              key={i}
+              onClick={() => setSelectedMember(m)}
+              className="p-4 border-l-4 border-primary rounded shadow cursor-pointer hover:bg-gray-50"
+            >
               <h3 className="font-semibold">{m.fullName}</h3>
             </div>
           ))}
@@ -138,20 +147,24 @@ export default function Members() {
       <section className="py-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filtered.map((m,i) => (
-            <div key={i}
-                 onClick={() => setSelectedMember(m)}
-                 className="p-4 bg-white rounded shadow hover:shadow-md cursor-pointer">
+            <div
+              key={i}
+              onClick={() => setSelectedMember(m)}
+              className="p-4 bg-white rounded shadow hover:shadow-md cursor-pointer"
+            >
               <div className="flex items-center space-x-2">
                 <Users className="text-primary" />
                 <span className="font-medium">{m.name}</span>
               </div>
             </div>
           ))}
-          {filtered.length === 0 && <p className="text-center col-span-full">Aucun membre trouvé.</p>}
+          {filtered.length === 0 && (
+            <p className="col-span-full text-center">Aucun membre trouvé.</p>
+          )}
         </div>
       </section>
 
-      {/* Modal Détails */}
+      {/* Modale Détails */}
       {selectedMember && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded shadow-lg relative max-w-lg w-full">
@@ -177,26 +190,30 @@ export default function Members() {
         </div>
       )}
 
-      {/* Devenir membre (section statique) */}
+      {/* Devenir membre */}
       <section className="py-16 bg-primary/10 text-center">
         <h2 className="text-3xl font-bold mb-4">Rejoindre la PONAH</h2>
         <p className="max-w-2xl mx-auto mb-6">
-          Toute ONG nationale légalement constituée et intervenant dans l’humanitaire peut adhérer en fournissant :
+          Toute ONG nationale légalement constituée peut adhérer en fournissant :
         </p>
         <ul className="max-w-2xl mx-auto list-disc list-inside text-left mb-6">
-          <li>Lettre de demande adressée au Président</li>
-          <li>Copie de l’accord cadre</li>
-          <li>Paiement de la cotisation et frais d’adhésion</li>
-          <li>Acceptation des statuts et de la charte</li>
+          <li>Lettre adressée au Président</li>
+          <li>Copie de l'accord cadre</li>
+          <li>Paiement de la cotisation et frais</li>
+          <li>Acceptation des statuts et charte</li>
         </ul>
       </section>
 
-      {/* Formulaire d’ajout (connecté au backend) */}
+      {/* Formulaire d’ajout */}
       <section className="py-8 bg-white px-4">
         <div className="max-w-md mx-auto">
           <h3 className="text-2xl font-bold text-center mb-4">Ajouter un nouveau membre</h3>
           <form onSubmit={handleSubmit} className="space-y-4">
-            {['name','fullName','dateCreation','accordCadre','zoneIntervention','adresse','responsable','fonction','telephone','email'].map(f => (
+            {[
+              'name','fullName','dateCreation','accordCadre',
+              'zoneIntervention','adresse','responsable',
+              'fonction','telephone','email'
+            ].map(f => (
               <input
                 key={f}
                 name={f}
@@ -217,7 +234,10 @@ export default function Members() {
               />
               <span>Adhérent récent</span>
             </label>
-            <button type="submit" className="w-full bg-primary text-white py-2 rounded">
+            <button
+              type="submit"
+              className="w-full bg-primary text-white py-2 rounded"
+            >
               Enregistrer le membre
             </button>
           </form>
