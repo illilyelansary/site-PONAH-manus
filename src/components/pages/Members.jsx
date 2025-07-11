@@ -6,141 +6,158 @@ import membersData from '../../data/membersData';
 const Members = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMember, setSelectedMember] = useState(null);
+  const [newMember, setNewMember] = useState({
+    name: '',
+    fullName: '',
+    dateCreation: '',
+    accordCadre: '',
+    zoneIntervention: '',
+    adresse: '',
+    responsable: '',
+    fonction: '',
+    telephone: '',
+    email: ''
+  });
 
   const filteredMembers = membersData.filter(member =>
     member.name && member.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const recentMembers = membersData.filter(member => member.recent === true);
-  const totalMembers = membersData.length;
-  const totalRecent = recentMembers.length;
-  const uniqueZones = [...new Set(membersData.map(m => m.zoneIntervention).filter(Boolean))].length;
+  const handleChange = (e) => {
+    setNewMember({ ...newMember, [e.target.name]: e.target.value });
+  };
+
+  const handleAddMember = () => {
+    if (newMember.name) {
+      membersData.push(newMember);
+      setNewMember({
+        name: '',
+        fullName: '',
+        dateCreation: '',
+        accordCadre: '',
+        zoneIntervention: '',
+        adresse: '',
+        responsable: '',
+        fonction: '',
+        telephone: '',
+        email: ''
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nos Membres</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Plus de 130 ONG nationales et locales unies pour l'action humanitaire au Mali
-          </p>
-        </div>
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 text-center">
+        <h1 className="text-4xl font-bold mb-2">Nos Membres</h1>
+        <p className="text-xl">ONG nationales et locales unies pour l'action humanitaire au Mali</p>
       </section>
 
       {/* Statistiques */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="text-3xl font-bold text-primary mb-2">{totalMembers}</div>
-            <div className="text-gray-600">ONG Membres</div>
+      <section className="py-12 bg-white text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="text-3xl font-bold text-primary">{membersData.length}</div>
+            <p>ONG Membres</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="text-3xl font-bold text-secondary mb-2">{uniqueZones}</div>
-            <div className="text-gray-600">Zones d'intervention</div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="text-3xl font-bold text-secondary">
+              {[...new Set(membersData.map(m => m.zoneIntervention))].length}
+            </div>
+            <p>Zones d'intervention</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="text-3xl font-bold text-accent mb-2">{totalRecent}</div>
-            <div className="text-gray-600">Nouveaux Membres 2024</div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="text-3xl font-bold text-accent">
+              {membersData.filter(m => m.recent).length}
+            </div>
+            <p>Nouveaux Membres</p>
           </div>
         </div>
       </section>
 
-      {/* Nouveaux membres */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Nouveaux Membres 2024</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Nous accueillons avec fierté ces nouvelles organisations
-          </p>
+      {/* Recherche */}
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-md mx-auto">
+          <div className="relative">
+            <Search className="absolute left-3 top-3 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Rechercher une ONG..."
+              className="pl-10 pr-4 py-2 border rounded w-full"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-          {recentMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary cursor-pointer"
-              onClick={() => setSelectedMember(member)}
-            >
-              <h3 className="font-semibold text-gray-900 text-sm">{member.fullName}</h3>
+
+        {/* Liste */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+          {filteredMembers.map((member, index) => (
+            <div key={index} onClick={() => setSelectedMember(member)} className="bg-white shadow p-4 rounded cursor-pointer">
+              <div className="flex items-center">
+                <Users className="text-primary mr-2" />
+                <h3>{member.name}</h3>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Barre de recherche + liste complète */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Tous nos Membres</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Découvrez toutes les organisations qui composent notre plateforme
-            </p>
-          </div>
-
-          <div className="max-w-md mx-auto mb-8">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              <input
-                type="text"
-                placeholder="Rechercher une ONG..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredMembers.map((member, index) => (
-              member.name && (
-                <div
-                  key={index}
-                  className="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md cursor-pointer"
-                  onClick={() => setSelectedMember(member)}
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Users className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="font-medium text-gray-900 text-sm">{member.name}</h3>
-                  </div>
-                </div>
-              )
-            ))}
-          </div>
-
-          {filteredMembers.length === 0 && (
-            <div className="text-center py-8">
-              <p className="text-gray-500">Aucune ONG trouvée pour "{searchTerm}"</p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Fenêtre Modale */}
+      {/* Modal */}
       {selectedMember && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
-          <div className="bg-white w-full max-w-lg mx-auto rounded-lg shadow-lg relative p-6">
-            <button
-              className="absolute top-4 right-4 text-gray-500 hover:text-red-500"
-              onClick={() => setSelectedMember(null)}
-            >
-              <X size={24} />
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg w-full max-w-lg relative">
+            <button onClick={() => setSelectedMember(null)} className="absolute top-2 right-2">
+              <X />
             </button>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">{selectedMember.fullName}</h2>
-            <div className="space-y-2 text-sm text-gray-700">
-              <p><strong>Date de création:</strong> {selectedMember.dateCreation}</p>
-              <p><strong>N° Accord Cadre:</strong> {selectedMember.accordCadre}</p>
-              <p><strong>Zone d’intervention:</strong> {selectedMember.zoneIntervention}</p>
-              <p><strong>Adresse:</strong> {selectedMember.adresse}</p>
-              <p><strong>Responsable:</strong> {selectedMember.responsable}</p>
-              <p><strong>Fonction:</strong> {selectedMember.fonction}</p>
-              <p><strong>Téléphone:</strong> {selectedMember.telephone}</p>
-              <p><strong>Email:</strong> {selectedMember.email}</p>
-            </div>
+            <h2 className="text-xl font-bold mb-4">{selectedMember.fullName}</h2>
+            <p><strong>Date de création:</strong> {selectedMember.dateCreation}</p>
+            <p><strong>N° Accord Cadre:</strong> {selectedMember.accordCadre}</p>
+            <p><strong>Zone:</strong> {selectedMember.zoneIntervention}</p>
+            <p><strong>Adresse:</strong> {selectedMember.adresse}</p>
+            <p><strong>Responsable:</strong> {selectedMember.responsable}</p>
+            <p><strong>Fonction:</strong> {selectedMember.fonction}</p>
+            <p><strong>Téléphone:</strong> {selectedMember.telephone}</p>
+            <p><strong>Email:</strong> {selectedMember.email}</p>
           </div>
         </div>
       )}
+
+      {/* Devenir membre */}
+      <section className="py-16 bg-primary/10 text-center">
+        <h2 className="text-3xl font-bold mb-6">Devenir membre</h2>
+        <p className="max-w-xl mx-auto mb-6">
+          Toute ONG nationale légalement constituée et active peut rejoindre la PONAH après avoir soumis :
+        </p>
+        <ul className="text-left max-w-xl mx-auto mb-6 list-disc list-inside">
+          <li>Lettre de demande adressée au président</li>
+          <li>Copie de l'accord cadre</li>
+          <li>Paiement des frais d'adhésion et cotisation annuelle</li>
+          <li>Acceptation de la charte et des statuts</li>
+        </ul>
+        <a href="mailto:ponah.mali@gmail.com" className="bg-primary text-white px-6 py-3 rounded">Faire une demande</a>
+      </section>
+
+      {/* Formulaire ajout */}
+      <section className="py-16 bg-white px-4">
+        <h2 className="text-2xl font-bold text-center mb-4">Ajouter un membre</h2>
+        <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+          {Object.keys(newMember).map((key) => (
+            <input
+              key={key}
+              type="text"
+              name={key}
+              placeholder={key}
+              value={newMember[key]}
+              onChange={handleChange}
+              className="border rounded px-4 py-2"
+            />
+          ))}
+        </div>
+        <div className="text-center mt-4">
+          <button onClick={handleAddMember} className="bg-primary text-white px-6 py-2 rounded">Ajouter</button>
+        </div>
+      </section>
     </div>
   );
 };
