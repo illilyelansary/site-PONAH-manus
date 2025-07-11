@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Heart } from 'lucide-react';
+import LogoPonah from '../assets/LogoPonah.png'; // <-- import du logo
 
 const Footer = () => {
   return (
@@ -11,8 +12,12 @@ const Footer = () => {
           {/* Logo et description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
+              <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-white/10">
+                <img
+                  src={LogoPonah}
+                  alt="Logo PONAH"
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-bold">PONAH</h3>
@@ -89,9 +94,7 @@ const Footer = () => {
                   className="text-primary mt-1 flex-shrink-0"
                 />
                 <div>
-                  <p className="text-gray-300 text-sm">
-                    Rue 737 Porte 419
-                  </p>
+                  <p className="text-gray-300 text-sm">Rue 737 Porte 419</p>
                   <p className="text-gray-300 text-sm">
                     Banankabougou, Bamako, Mali
                   </p>
@@ -114,9 +117,7 @@ const Footer = () => {
         {/* Ligne de séparation */}
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 PONAH. Tous droits réservés.
-            </p>
+            <p className="text-gray-400 text-sm">© 2024 PONAH. Tous droits réservés.</p>
             <p className="text-gray-400 text-sm mt-2 md:mt-0">
               Enregistrée sous le N° 00003 MATD-DGAT
             </p>
