@@ -1,36 +1,69 @@
-// src/components/pages/Members.jsx
 import React, { useState } from 'react';
-import {
-  Search,
-  Users,
-  FileText,
-  CreditCard,
-  CheckCircle,
-  X
-} from 'lucide-react';
+import { Search, Users, X } from 'lucide-react';
 import membersData from '../../data/membersData';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Members = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMember, setSelectedMember] = useState(null);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [newMember, setNewMember] = useState({
+    name: '', fullName: '', dateCreation: '', accordCadre: '',
+    zoneIntervention: '', adresse: '', responsable: '',
+    fonction: '', telephone: '', email: '', recent: false
+  });
+  const { user, token } = useAuth();
 
   const filteredMembers = membersData.filter(member =>
     member.name && member.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const recentMembers = membersData.filter(member => member.recent === true);
+  const recentMembers = membersData.filter(member => member.recent);
   const totalMembers = membersData.length;
   const totalRecent = recentMembers.length;
-  const uniqueZones = [
-    ...new Set(
-      membersData.map(m => m.zoneIntervention).filter(Boolean)
-    )
-  ].length;
+  const uniqueZones = [...new Set(membersData.map(m => m.zoneIntervention).filter(Boolean))].length;
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Voulez-vous vraiment supprimer ce membre ?")) return;
+    try {
+      const res = await fetch(`https://ponah-backend.onrender.com/api/members/${id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (!res.ok) throw new Error('Échec de la suppression');
+      window.location.reload();
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
+  const handleAddChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setNewMember({ ...newMember, [name]: type === 'checkbox' ? checked : value });
+  };
+
+  const handleAddSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch('https://ponah-backend.onrender.com/api/members', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(newMember)
+      });
+      if (!res.ok) throw new Error("Erreur lors de l'ajout du membre");
+      alert("Membre ajouté avec succès !");
+      setShowAddForm(false);
+      window.location.reload();
+    } catch (err) {
+      alert(err.message);
+    }
+  };
 
   return (
     <div className="min-h-screen">
-
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Nos Membres</h1>
         <p className="text-xl md:text-2xl max-w-3xl mx-auto">
@@ -38,7 +71,7 @@ const Members = () => {
         </p>
       </section>
 
-      {/* Statistiques */}
+      {/* Stats */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="bg-white p-6 rounded-lg shadow-md">
@@ -56,78 +89,50 @@ const Members = () => {
         </div>
       </section>
 
-      {/* Nouveaux membres */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Nouveaux Membres 2025</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Nous accueillons avec fierté ces nouvelles organisations
-          </p>
+      {/* Bouton admin */}
+      {user && (
+        <div className="flex justify-end max-w-7xl mx-auto px-4">
+          <button onClick={() => setShowAddForm(true)} className="bg-green-600 text-white px-4 py-2 rounded">
+            Ajouter un membre
+          </button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-          {recentMembers.map((member, i) => (
-            <div
-              key={i}
-              className="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary cursor-pointer"
-              onClick={() => setSelectedMember(member)}
-            >
-              <h3 className="font-semibold text-gray-900 text-sm">{member.fullName}</h3>
-            </div>
-          ))}
-        </div>
-      </section>
+      )}
 
-      {/* Recherche + Liste complète */}
+      {/* Liste membres */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Tous nos Membres</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Découvrez toutes les organisations qui composent notre plateforme
-            </p>
-          </div>
-
           <div className="max-w-md mx-auto mb-8">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               <input
                 type="text"
                 placeholder="Rechercher une ONG..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg"
                 value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredMembers.map((member, idx) => (
-              member.name && (
-                <div
-                  key={idx}
-                  className="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md cursor-pointer"
-                  onClick={() => setSelectedMember(member)}
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Users className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="font-medium text-gray-900 text-sm">{member.name}</h3>
+            {filteredMembers.map((member, index) => (
+              <div
+                key={index}
+                className="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md cursor-pointer"
+                onClick={() => setSelectedMember(member)}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Users className="w-5 h-5 text-primary" />
                   </div>
+                  <h3 className="font-medium text-gray-900 text-sm">{member.name}</h3>
                 </div>
-              )
+              </div>
             ))}
           </div>
-
-          {filteredMembers.length === 0 && (
-            <div className="text-center py-8">
-              <p className="text-gray-500">Aucune ONG trouvée pour "{searchTerm}"</p>
-            </div>
-          )}
         </div>
       </section>
 
-      {/* Fenêtre Modale */}
+      {/* Modale membre */}
       {selectedMember && (
         <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
           <div className="bg-white w-full max-w-lg mx-auto rounded-lg shadow-lg relative p-6">
@@ -147,103 +152,55 @@ const Members = () => {
               <p><strong>Fonction:</strong> {selectedMember.fonction}</p>
               <p><strong>Téléphone:</strong> {selectedMember.telephone}</p>
               <p><strong>Email:</strong> {selectedMember.email}</p>
+              {user && (
+                <button
+                  onClick={() => handleDelete(selectedMember._id)}
+                  className="mt-4 px-4 py-2 bg-red-600 text-white rounded"
+                >
+                  Supprimer ce membre
+                </button>
+              )}
             </div>
           </div>
         </div>
       )}
 
-      {/* Rejoindre la PONAH */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Rejoindre la PONAH</h2>
-          <p className="text-lg text-gray-700 mb-8">
-            L’adhésion à la PONAH est libre et volontaire pour toute ONG nationale qui accepte nos statuts
-          </p>
-
-          {/* 4 étapes */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div className="space-y-2">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <FileText className="w-8 h-8 text-green-600" />
-              </div>
-              <h4 className="text-green-600 font-semibold">Étape 1</h4>
-              <h3 className="font-semibold text-gray-900">Demande d’adhésion</h3>
-              <p className="text-gray-600 text-sm">
-                Soumettre une demande timbrée adressée au Président de la PONAH
-              </p>
-            </div>
-            <div className="space-y-2">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <CheckCircle className="w-8 h-8 text-green-600" />
-              </div>
-              <h4 className="text-green-600 font-semibold">Étape 2</h4>
-              <h3 className="font-semibold text-gray-900">Accord Cadre</h3>
-              <p className="text-gray-600 text-sm">
-                Fournir l’Accord Cadre de votre organisation
-              </p>
-            </div>
-            <div className="space-y-2">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <CreditCard className="w-8 h-8 text-green-600" />
-              </div>
-              <h4 className="text-green-600 font-semibold">Étape 3</h4>
-              <h3 className="font-semibold text-gray-900">Frais d’adhésion</h3>
-              <p className="text-gray-600 text-sm">
-                Libérer les frais d’adhésion de 50 000 FCFA (non remboursable)
-              </p>
-            </div>
-            <div className="space-y-2">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
-                <Users className="w-8 h-8 text-green-600" />
-              </div>
-              <h4 className="text-green-600 font-semibold">Étape 4</h4>
-              <h3 className="font-semibold text-gray-900">Cotisation annuelle</h3>
-              <p className="text-gray-600 text-sm">
-                S’engager à payer la cotisation annuelle de 50 000 FCFA
-              </p>
-            </div>
+      {/* Formulaire ajout */}
+      {showAddForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
+          <div className="bg-white w-full max-w-lg p-6 rounded shadow relative">
+            <button className="absolute top-4 right-4" onClick={() => setShowAddForm(false)}><X /></button>
+            <h3 className="text-xl font-bold mb-4">Ajouter un nouveau membre</h3>
+            <form onSubmit={handleAddSubmit} className="space-y-3">
+              {Object.keys(newMember).map(key => (
+                key !== '_id' && key !== 'recent' ? (
+                  <input
+                    key={key}
+                    name={key}
+                    placeholder={key}
+                    value={newMember[key] || ''}
+                    onChange={handleAddChange}
+                    className="w-full border px-3 py-2 rounded"
+                    required
+                  />
+                ) : key === 'recent' ? (
+                  <label key={key} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      name="recent"
+                      checked={newMember.recent}
+                      onChange={handleAddChange}
+                      className="mr-2"
+                    />
+                    Nouveau membre 2025
+                  </label>
+                ) : null
+              ))}
+              <button type="submit" className="w-full bg-primary text-white py-2 rounded">Ajouter</button>
+            </form>
           </div>
-
-          {/* Critères */}
-          <div className="bg-green-50 p-8 rounded-lg mb-8">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Critères d’Adhésion</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
-              <li className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Être une ONG nationale légalement reconnue</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Intervenir dans le domaine humanitaire</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Accepter les statuts et règlement intérieur</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Disposer d’un Accord Cadre valide</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>S’acquitter des frais d’adhésion et cotisations</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-green-600" />
-                <span>Respecter la charte des membres</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Bouton */}
-          <a
-            href="mailto:ponah.mali@gmail.com"
-            className="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold"
-          >
-            Demander l’adhésion
-          </a>
         </div>
-      </section>
+      )}
     </div>
   );
 };
