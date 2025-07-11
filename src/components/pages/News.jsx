@@ -2,6 +2,17 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, ArrowRight, Tag, X } from 'lucide-react';
 
+// Importez vos images depuis src/assets/
+import img1 from '../../assets/news1-new.jpg';
+import img2 from '../../assets/news2.jpg';
+import img3 from '../../assets/news3.jpg';
+import img4 from '../../assets/news4.jpg';
+import img5 from '../../assets/news5.jpg';
+import img6 from '../../assets/news6.jpg';
+
+// Fallback si jamais une image manque
+import defaultImage from '../../assets/placeholder-600x300.jpg';
+
 const news = [
   {
     id: 1,
@@ -27,7 +38,7 @@ Une feuille de route a été élaborée pour guider l'élaboration de la straté
     category: 'strategie',
     readTime: '5 min',
     featured: true,
-    image: '/images/news1-new.jpg'
+    image: img1
   },
   {
     id: 2,
@@ -49,7 +60,7 @@ Cette formation répond aux priorités critiques identifiées dans le rapport de
     category: 'formation',
     readTime: '4 min',
     featured: true,
-    image: '/api/placeholder/600/300'
+    image: img2
   },
   {
     id: 3,
@@ -71,7 +82,7 @@ Cette mission a permis d'obtenir des promesses concrètes de financement et d'é
     category: 'plaidoyer',
     readTime: '3 min',
     featured: false,
-    image: '/api/placeholder/600/300'
+    image: img3
   },
   {
     id: 4,
@@ -94,7 +105,7 @@ Un comité de pilotage multi-acteurs a été proposé pour assurer le suivi de c
     category: 'recherche',
     readTime: '4 min',
     featured: false,
-    image: '/api/placeholder/600/300'
+    image: img4
   },
   {
     id: 5,
@@ -116,7 +127,7 @@ Cette table ronde a renforcé l'engagement de tous les acteurs à poursuivre les
     category: 'coordination',
     readTime: '3 min',
     featured: false,
-    image: '/api/placeholder/600/300'
+    image: img5
   },
   {
     id: 6,
@@ -138,7 +149,7 @@ Aujourd'hui, la PONAH regroupe plus de 130 ONG nationales et locales, couvrant l
     category: 'institutionnel',
     readTime: '4 min',
     featured: false,
-    image: '/api/placeholder/600/300'
+    image: img6
   }
 ];
 
@@ -177,11 +188,17 @@ export default function News() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {featured.map(article => (
             <article key={article.id} className="bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-              <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
+              <img
+                src={article.image || defaultImage}
+                alt={article.title}
+                className="w-full h-48 object-cover"
+              />
               <div className="p-6">
                 <div className="flex items-center space-x-3 mb-3">
                   <Tag className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-gray-500">{categories.find(c => c.id === article.category)?.label}</span>
+                  <span className="text-sm text-gray-500">
+                    {categories.find(c => c.id === article.category)?.label}
+                  </span>
                   <Calendar className="w-4 h-4 text-gray-500 ml-4" />
                   <span className="text-sm text-gray-500">{article.date}</span>
                   <Clock className="w-4 h-4 text-gray-500 ml-4" />
@@ -228,7 +245,11 @@ export default function News() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map(article => (
             <article key={article.id} className="bg-white rounded-lg shadow hover:shadow-lg overflow-hidden">
-              <img src={article.image} alt={article.title} className="w-full h-40 object-cover" />
+              <img
+                src={article.image || defaultImage}
+                alt={article.title}
+                className="w-full h-40 object-cover"
+              />
               <div className="p-6">
                 <div className="flex items-center space-x-2 mb-2">
                   <span className="text-xs text-primary font-medium">
@@ -263,7 +284,11 @@ export default function News() {
             >
               <X size={24} />
             </button>
-            <img src={modalArticle.image} alt={modalArticle.title} className="w-full h-56 object-cover rounded-t-lg" />
+            <img
+              src={modalArticle.image || defaultImage}
+              alt={modalArticle.title}
+              className="w-full h-56 object-cover rounded-t-lg"
+            />
             <div className="p-6">
               <h2 className="text-2xl font-bold mb-4">{modalArticle.title}</h2>
               <div className="flex items-center space-x-4 text-gray-500 mb-6">
