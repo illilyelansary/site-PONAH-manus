@@ -3,12 +3,10 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import LogoPonah from '../assets/LogoPonah.png';
-import { useAuth } from '../contexts/AuthContext';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const { user, logout } = useAuth();
 
   const navigation = [
     { name: 'Accueil', href: '/' },
@@ -38,7 +36,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -52,23 +50,6 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-
-            {/* Connexion / Déconnexion */}
-            {user ? (
-              <button
-                onClick={logout}
-                className="px-3 py-2 text-sm font-medium text-red-600 hover:text-red-800"
-              >
-                Déconnexion
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                className="px-3 py-2 text-sm font-medium text-green-600 hover:text-green-800"
-              >
-                Connexion
-              </Link>
-            )}
           </nav>
 
           {/* Mobile menu button */}
@@ -100,28 +81,10 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-
-              {/* Connexion / Déconnexion mobile */}
-              {user ? (
-                <button
-                  onClick={() => { logout(); setIsMenuOpen(false); }}
-                  className="block w-full text-left px-3 py-2 text-red-600 hover:text-red-800"
-                >
-                  Déconnexion
-                </button>
-              ) : (
-                <Link
-                  to="/login"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-green-600 hover:text-green-800"
-                >
-                  Connexion
-                </Link>
-              )}
             </div>
           </div>
         )}
       </div>
     </header>
-  );
+);
 }
