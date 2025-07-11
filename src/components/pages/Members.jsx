@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, Users, FileText, CreditCard, CheckCircle, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Search, Users, X, ArrowRight } from 'lucide-react';
 import membersData from '../../data/membersData';
 
 const Members = () => {
@@ -159,6 +160,70 @@ const Members = () => {
           >
             Demander l'adhésion
           </a>
+        </div>
+      </section>
+
+      {/* Équipe Dirigeante & FAQ */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Notre Équipe Dirigeante</h2>
+          <p className="text-center text-gray-600 mb-12">Rencontrez les responsables qui dirigent la PONAH</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center space-y-2">
+              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <Users className="text-primary w-8 h-8" />
+              </div>
+              <h3 className="font-semibold">El Mehdi Ag WAKINA</h3>
+              <p className="text-sm text-gray-500">Président</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <Users className="text-primary w-8 h-8" />
+              </div>
+              <h3 className="font-semibold">Moussa A DIALLO</h3>
+              <p className="text-sm text-gray-500">Vice-Président</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <Users className="text-primary w-8 h-8" />
+              </div>
+              <h3 className="font-semibold">Dianguina SOUMARE</h3>
+              <p className="text-sm text-gray-500">Secrétaire Général</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center">
+                <Users className="text-primary w-8 h-8" />
+              </div>
+              <h3 className="font-semibold">Alidji Guitteye</h3>
+              <p className="text-sm text-gray-500">Trésorier Général</p>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Questions Fréquemment Posées</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
+                <h4 className="font-semibold mb-2">Comment adhérer à la PONAH ?</h4>
+                <p className="text-gray-600 mb-2">L'adhésion nécessite une demande timbrée, un Accord Cadre, le paiement des frais d'adhésion (50 000 FCFA) et l'engagement à payer la cotisation annuelle.</p>
+                <Link to="/membres" className="text-primary font-medium hover:underline">Voir les détails <ArrowRight className="inline w-4 h-4 ml-1" /></Link>
+              </div>
+              <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
+                <h4 className="font-semibold mb-2">Quels sont les avantages d'être membre ?</h4>
+                <p className="text-gray-600 mb-2">Accès aux formations, participation aux mécanismes de coordination, opportunités de financement et renforcement des capacités.</p>
+                <Link to="/members" className="text-primary font-medium hover:underline">En savoir plus <ArrowRight className="inline w-4 h-4 ml-1" /></Link>
+              </div>
+              <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
+                <h4 className="font-semibold mb-2">Comment collaborer avec la PONAH ?</h4>
+                <p className="text-gray-600 mb-2">Nous sommes ouverts aux partenariats avec les organisations internationales, bailleurs de fonds et institutions gouvernementales.</p>
+                <Link to="/contact" className="text-primary font-medium hover:underline">Nous contacter <ArrowRight className="inline w-4 h-4 ml-1" /></Link>
+              </div>
+              <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
+                <h4 className="font-semibold mb-2">Où intervient la PONAH ?</h4>
+                <p className="text-gray-600 mb-2">La PONAH couvre l'ensemble du territoire malien avec ses 130+ ONG membres réparties dans toutes les régions.</p>
+                <Link to="/carte" className="text-primary font-medium hover:underline">Voir la carte <ArrowRight className="inline w-4 h-4 ml-1" /></Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
