@@ -22,8 +22,9 @@ export default function Members() {
 
   // Charger et fusionner les membres du backend
   useEffect(() => {
-    fetch(API, { headers: { 'Authorization': `Bearer ${token}` } });
-    fetch(API, { headers: { 'Authorization': `Bearer ${token}` } })
+    fetch(API, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
       .then(res => res.json())
       .then(data => {
         const existingIds = new Set(membersDataStatic.map(m => m.id));
@@ -60,7 +61,10 @@ export default function Members() {
   const handleDelete = async id => {
     if (!isAdmin || !window.confirm('Confirmez-vous la suppression ?')) return;
     try {
-      const res = await fetch(`${API}/${id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } });
+      const res = await fetch(`${API}/${id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
       if (!res.ok) throw new Error();
       setMembers(m => m.filter(x => x.id !== id));
       if (selectedMember?.id === id) setSelectedMember(null);
@@ -129,7 +133,9 @@ export default function Members() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filtered.map(m => (
             <div key={m.id} className="relative p-4 bg-white rounded shadow hover:shadow-md">
-              {isAdmin && <button onClick={() => handleDelete(m.id)} className="absolute top-2 right-2 text-red-500 hover:text-red-700">🗑️</button>}
+              {isAdmin && (
+                <button onClick={() => handleDelete(m.id)} className="absolute top-2 right-2 text-red-500 hover:text-red-700">🗑️</button>
+              )}
               <div onClick={() => setSelectedMember(m)} className="flex items-center space-x-2 cursor-pointer">
                 <Users className="text-primary" /><span className="font-medium">{m.name}</span>
               </div>
@@ -148,7 +154,9 @@ export default function Members() {
             <ul className="space-y-1 text-sm">
               {/* détails list */}
             </ul>
-            {isAdmin && <button onClick={() => { handleDelete(selectedMember.id); setSelectedMember(null); }} className="mt-4 w-full bg-red-500 text-white py-2 rounded">Supprimer ce membre</button>}
+            {isAdmin && (
+              <button onClick={() => { handleDelete(selectedMember.id); setSelectedMember(null); }} className="mt-4 w-full bg-red-500 text-white py-2 rounded">Supprimer ce membre</button>
+            )}
           </div>
         </div>
       )}
