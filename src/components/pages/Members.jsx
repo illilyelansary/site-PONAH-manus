@@ -1,7 +1,7 @@
 ```jsx
 // src/components/pages/Members.jsx
 import React, { useState, useEffect } from 'react';
-import { Search, Users, X, CheckCircle } from 'lucide-react';
+import { Search, Users, CheckCircle, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import membersDataStatic from '../../data/membersData';
 
@@ -22,6 +22,7 @@ export default function Members() {
 
   // Charger et fusionner les membres du backend
   useEffect(() => {
+    fetch(API, { headers: { 'Authorization': `Bearer ${token}` } });
     fetch(API, { headers: { 'Authorization': `Bearer ${token}` } })
       .then(res => res.json())
       .then(data => {
@@ -145,15 +146,7 @@ export default function Members() {
             <button className="absolute top-2 right-2 text-gray-500 hover:text-red-500" onClick={() => setSelectedMember(null)}><X size={24} /></button>
             <h2 className="text-2xl font-bold mb-2">{selectedMember.fullName}</h2>
             <ul className="space-y-1 text-sm">
-              <li><strong>Nom court :</strong> {selectedMember.name}</li>
-              <li><strong>Date :</strong> {selectedMember.dateCreation}</li>
-              <li><strong>Accord cadre :</strong> {selectedMember.accordCadre}</li>
-              <li><strong>Zone :</strong> {selectedMember.zoneIntervention}</li>
-              <li><strong>Adresse :</strong> {selectedMember.adresse}</li>
-              <li><strong>Responsable :</strong> {selectedMember.responsable}</li>
-              <li><strong>Fonction :</strong> {selectedMember.fonction}</li>
-              <li><strong>Téléphone :</strong> {selectedMember.telephone}</li>
-              <li><strong>Email :</strong> {selectedMember.email}</li>
+              {/* détails list */}
             </ul>
             {isAdmin && <button onClick={() => { handleDelete(selectedMember.id); setSelectedMember(null); }} className="mt-4 w-full bg-red-500 text-white py-2 rounded">Supprimer ce membre</button>}
           </div>
