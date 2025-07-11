@@ -1,3 +1,4 @@
+```jsx
 // src/components/pages/Members.jsx
 import React, { useState, useEffect } from 'react';
 import { Search, Users, X } from 'lucide-react';
@@ -7,7 +8,7 @@ import membersDataStatic from '../../data/membersData';
 const API = 'https://ponah-backend.onrender.com/api/members';
 
 export default function Members() {
-  const { isAdmin } = useAuth();
+  const { token, isAdmin } = useAuth();
 
   const [members, setMembers] = useState(membersDataStatic);
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,15 +22,19 @@ export default function Members() {
 
   // Charger et fusionner les membres du backend
   useEffect(() => {
-    fetch(API)
+    fetch(API, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
       .then(res => res.json())
       .then(data => {
         const existing = new Set(membersDataStatic.map(m => m.id));
-        const toAdd   = data.filter(m => !existing.has(m.id));
+        const toAdd = data.filter(m => !existing.has(m.id));
         setMembers([...membersDataStatic, ...toAdd]);
       })
       .catch(console.error);
-  }, []);
+  }, [token]);
 
   // Ajout d’un membre (admin only)
   const handleSubmit = async e => {
@@ -38,7 +43,10 @@ export default function Members() {
     try {
       const res = await fetch(API, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify(formData)
       });
       if (!res.ok) throw new Error();
@@ -60,8 +68,12 @@ export default function Members() {
   const handleDelete = async id => {
     if (!isAdmin || !window.confirm('Confirmez-vous la suppression ?')) return;
     try {
-      // ← POINT-VIRGULE BIEN PRÉSENT CI-DESSOUS
-      const res = await fetch(`${API}/${id}`, { method: 'DELETE' }); 
+      const res = await fetch(`${API}/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       if (!res.ok) throw new Error();
       setMembers(m => m.filter(x => x.id !== id));
       if (selectedMember?.id === id) setSelectedMember(null);
@@ -83,8 +95,8 @@ export default function Members() {
   );
 
   // Statistiques
-  const total       = members.length;
-  const zones       = [...new Set(members.map(m => m.zoneIntervention).filter(Boolean))].length;
+  const total = members.length;
+  const zones = [...new Set(members.map(m => m.zoneIntervention).filter(Boolean))].length;
   const recentCount = members.filter(m => m.recent).length;
 
   return (
@@ -195,11 +207,7 @@ export default function Members() {
           <div className="max-w-md mx-auto">
             <h3 className="text-2xl font-bold text-center mb-4">Ajouter un nouveau membre</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
-              {[
-                'name','fullName','dateCreation','accordCadre',
-                'zoneIntervention','adresse','responsable',
-                'fonction','telephone','email'
-              ].map(f => (
+              {['name','fullName','dateCreation','accordCadre','zoneIntervention','adresse','responsable','fonction','telephone','email'].map(f => (
                 <input
                   key={f}
                   name={f}
@@ -229,3 +237,4 @@ export default function Members() {
     </div>
   );
 }
+```
