@@ -12,25 +12,27 @@ import Activities from './components/pages/Activities';
 import Publications from './components/pages/Publications';
 import News from './components/pages/News';
 import Contact from './components/pages/Contact';
-+ import Admin from './components/pages/Admin';
+import Admin from './components/pages/Admin'; // ta page de gestion
 
 function App() {
   return (
     <Router>
-      <Header />
-      <main className="flex-grow">
-        <Routes>
-+         <Route path="/admin" element={<Admin />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/apropos" element={<About />} />
-          <Route path="/membres" element={<Members />} />
-          <Route path="/activites" element={<Activities />} />
-          <Route path="/publications" element={<Publications />} />
-          <Route path="/actualites" element={<News />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/apropos" element={<About />} />
+            <Route path="/membres" element={<Members />} />
+            <Route path="/activites" element={<Activities />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/actualites" element={<News />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/admin" element={<Admin />} /> {/* visible uniquement via URL */}
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
