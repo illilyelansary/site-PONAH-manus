@@ -1,13 +1,15 @@
+// src/components/pages/Members.jsx
+import React, { useState, useEffect } from 'react';
+import { Search, Users, X } from 'lucide-react';
 
-import React, { useState } from 'react';
-import { Search, Users, FileText, CreditCard, CheckCircle, X } from 'lucide-react';
-import membersDataInitial from '../../data/membersData';
+const API = 'https://ponah-backend.onrender.com/members';
 
-const Members = () => {
+export default function Members() {
+  // States
+  const [members, setMembers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMember, setSelectedMember] = useState(null);
-  const [membersData, setMembersData] = useState(membersDataInitial);
-  const [newMember, setNewMember] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     fullName: '',
     dateCreation: '',
@@ -18,186 +20,204 @@ const Members = () => {
     fonction: '',
     telephone: '',
     email: '',
-    recent: false
+    recent: true
   });
 
-  const filteredMembers = membersData.filter(member =>
-    member.name && member.name.toLowerCase().includes(searchTerm.toLowerCase())
+  // 1. Charger les membres depuis le backend
+  useEffect(() => {
+    fetch(API)
+      .then(res => res.json())
+      .then(data => setMembers(data))
+      .catch(err => console.error('Erreur chargement membres :', err));
+  }, []);
+
+  // 2. Requête POST pour ajouter un membre
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error('Échec de l’enregistrement');
+      // Mettre à jour localement sans recharger
+      setMembers(prev => [...prev, formData]);
+      // Réinitialiser le form
+      setFormData({
+        name: '',
+        fullName: '',
+        dateCreation: '',
+        accordCadre: '',
+        zoneIntervention: '',
+        adresse: '',
+        responsable: '',
+        fonction: '',
+        telephone: '',
+        email: '',
+        recent: true
+      });
+      alert('Membre ajouté !');
+    } catch (err) {
+      console.error(err);
+      alert('Erreur lors de l’ajout du membre');
+    }
+  };
+
+  // 3. Gestion des champs du formulaire
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(fd => ({
+      ...fd,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  // 4. Filtrage pour la recherche
+  const filtered = members.filter(m =>
+    m.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const recentMembers = membersData.filter(member => member.recent === true);
-  const totalMembers = membersData.length;
-  const totalRecent = recentMembers.length;
-  const uniqueZones = [...new Set(membersData.map(m => m.zoneIntervention).filter(Boolean))].length;
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewMember(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleAddMember = (e) => {
-    e.preventDefault();
-    setMembersData(prev => [...prev, newMember]);
-    setNewMember({
-      name: '',
-      fullName: '',
-      dateCreation: '',
-      accordCadre: '',
-      zoneIntervention: '',
-      adresse: '',
-      responsable: '',
-      fonction: '',
-      telephone: '',
-      email: '',
-      recent: false
-    });
-  };
+  // 5. Calcul statistiques
+  const totalMembers = members.length;
+  const recentCount = members.filter(m => m.recent).length;
+  const uniqueZones = [...new Set(members.map(m => m.zoneIntervention).filter(Boolean))].length;
 
   return (
     <div className="min-h-screen">
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nos Membres</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Plus de {totalMembers} ONG nationales et locales unies pour l'action humanitaire au Mali
-          </p>
-        </div>
-      </section>
 
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="text-3xl font-bold text-primary mb-2">{totalMembers}</div>
-            <div className="text-gray-600">ONG Membres</div>
+      {/* Hero & Statistiques */}
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-16 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Nos Membres</h1>
+        <p className="mb-8">{totalMembers} ONG nationales et locales unies pour l'action humanitaire au Mali</p>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white/20 p-6 rounded">
+            <div className="text-3xl font-bold">{totalMembers}</div>
+            <div>Membres</div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="text-3xl font-bold text-secondary mb-2">{uniqueZones}</div>
-            <div className="text-gray-600">Zones d'intervention</div>
+          <div className="bg-white/20 p-6 rounded">
+            <div className="text-3xl font-bold">{uniqueZones}</div>
+            <div>Zones</div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="text-3xl font-bold text-accent mb-2">{totalRecent}</div>
-            <div className="text-gray-600">Nouveaux Membres 2024</div>
+          <div className="bg-white/20 p-6 rounded">
+            <div className="text-3xl font-bold">{recentCount}</div>
+            <div>Nouveaux 2024</div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Nouveaux Membres 2024</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Nous accueillons avec fierté ces nouvelles organisations
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-          {recentMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary cursor-pointer"
-              onClick={() => setSelectedMember(member)}
-            >
-              <h3 className="font-semibold text-gray-900 text-sm">{member.fullName}</h3>
+      {/* Nouveaux Membres */}
+      <section className="py-16 bg-white text-center">
+        <h2 className="text-3xl font-bold mb-4">Nouveaux Membres 2024</h2>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {members.filter(m => m.recent).map((m,i) => (
+            <div key={i}
+                 onClick={() => setSelectedMember(m)}
+                 className="p-4 border-l-4 border-primary rounded shadow cursor-pointer hover:bg-gray-50">
+              <h3 className="font-semibold">{m.fullName}</h3>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Tous nos Membres</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Découvrez toutes les organisations qui composent notre plateforme
-            </p>
-          </div>
-          <div className="max-w-md mx-auto mb-8">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              <input
-                type="text"
-                placeholder="Rechercher une ONG..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredMembers.map((member, index) => (
-              member.name && (
-                <div
-                  key={index}
-                  className="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md cursor-pointer"
-                  onClick={() => setSelectedMember(member)}
-                >
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Users className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="font-medium text-gray-900 text-sm">{member.name}</h3>
-                  </div>
-                </div>
-              )
-            ))}
-          </div>
+      {/* Recherche */}
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-md mx-auto relative">
+          <Search className="absolute left-3 top-3 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Rechercher une ONG..."
+            className="w-full pl-10 pr-4 py-2 border rounded"
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+          />
         </div>
       </section>
 
+      {/* Liste des Membres */}
+      <section className="py-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filtered.map((m,i) => (
+            <div key={i}
+                 onClick={() => setSelectedMember(m)}
+                 className="p-4 bg-white rounded shadow hover:shadow-md cursor-pointer">
+              <div className="flex items-center space-x-2">
+                <Users className="text-primary" />
+                <span className="font-medium">{m.name}</span>
+              </div>
+            </div>
+          ))}
+          {filtered.length === 0 && <p className="text-center col-span-full">Aucun membre trouvé.</p>}
+        </div>
+      </section>
+
+      {/* Modal Détails */}
       {selectedMember && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
-          <div className="bg-white w-full max-w-lg mx-auto rounded-lg shadow-lg relative p-6">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded shadow-lg relative max-w-lg w-full">
             <button
-              className="absolute top-4 right-4 text-gray-500 hover:text-red-500"
+              className="absolute top-3 right-3 text-gray-500 hover:text-red-500"
               onClick={() => setSelectedMember(null)}
             >
               <X size={24} />
             </button>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">{selectedMember.fullName}</h2>
-            <div className="space-y-2 text-sm text-gray-700">
-              <p><strong>Date de création:</strong> {selectedMember.dateCreation}</p>
-              <p><strong>N° Accord Cadre:</strong> {selectedMember.accordCadre}</p>
-              <p><strong>Zone d’intervention:</strong> {selectedMember.zoneIntervention}</p>
-              <p><strong>Adresse:</strong> {selectedMember.adresse}</p>
-              <p><strong>Responsable:</strong> {selectedMember.responsable}</p>
-              <p><strong>Fonction:</strong> {selectedMember.fonction}</p>
-              <p><strong>Téléphone:</strong> {selectedMember.telephone}</p>
-              <p><strong>Email:</strong> {selectedMember.email}</p>
-            </div>
+            <h2 className="text-2xl font-bold mb-2">{selectedMember.fullName}</h2>
+            <ul className="space-y-1 text-sm">
+              <li><strong>Nom court :</strong> {selectedMember.name}</li>
+              <li><strong>Date :</strong> {selectedMember.dateCreation}</li>
+              <li><strong>Accord cadre :</strong> {selectedMember.accordCadre}</li>
+              <li><strong>Zone :</strong> {selectedMember.zoneIntervention}</li>
+              <li><strong>Adresse :</strong> {selectedMember.adresse}</li>
+              <li><strong>Responsable :</strong> {selectedMember.responsable}</li>
+              <li><strong>Fonction :</strong> {selectedMember.fonction}</li>
+              <li><strong>Téléphone :</strong> {selectedMember.telephone}</li>
+              <li><strong>Email :</strong> {selectedMember.email}</li>
+            </ul>
           </div>
         </div>
       )}
 
-      <section className="py-20 bg-primary/5 mt-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Rejoindre la PONAH</h2>
-          <p className="text-lg text-gray-700 mb-6">
-            Toute ONG nationale légalement constituée, intervenant dans le domaine humanitaire au Mali,
-            et adhérant aux statuts et règlement intérieur de la PONAH, peut faire une demande d’adhésion.
-          </p>
-          <ul className="text-left max-w-2xl mx-auto text-gray-700 mb-6 list-disc list-inside">
-            <li>Lettre de demande adressée au Président</li>
-            <li>Copie de l’accord cadre</li>
-            <li>Paiement de la cotisation annuelle et frais d’adhésion</li>
-            <li>Engagement à respecter la charte des membres</li>
-          </ul>
-        </div>
+      {/* Devenir membre (section statique) */}
+      <section className="py-16 bg-primary/10 text-center">
+        <h2 className="text-3xl font-bold mb-4">Rejoindre la PONAH</h2>
+        <p className="max-w-2xl mx-auto mb-6">
+          Toute ONG nationale légalement constituée et intervenant dans l’humanitaire peut adhérer en fournissant :
+        </p>
+        <ul className="max-w-2xl mx-auto list-disc list-inside text-left mb-6">
+          <li>Lettre de demande adressée au Président</li>
+          <li>Copie de l’accord cadre</li>
+          <li>Paiement de la cotisation et frais d’adhésion</li>
+          <li>Acceptation des statuts et de la charte</li>
+        </ul>
+      </section>
 
-        <div className="max-w-2xl mx-auto bg-white p-6 mt-10 rounded-lg shadow-md">
-          <h3 className="text-xl font-bold mb-4 text-gray-900">Ajouter un membre</h3>
-          <form onSubmit={handleAddMember} className="space-y-4">
-            {Object.keys(newMember).map(key => (
-              key !== 'recent' && (
-                <input
-                  key={key}
-                  type="text"
-                  name={key}
-                  placeholder={key}
-                  value={newMember[key]}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg"
-                />
-              )
+      {/* Formulaire d’ajout (connecté au backend) */}
+      <section className="py-8 bg-white px-4">
+        <div className="max-w-md mx-auto">
+          <h3 className="text-2xl font-bold text-center mb-4">Ajouter un nouveau membre</h3>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {['name','fullName','dateCreation','accordCadre','zoneIntervention','adresse','responsable','fonction','telephone','email'].map(f => (
+              <input
+                key={f}
+                name={f}
+                type="text"
+                placeholder={f.charAt(0).toUpperCase()+f.slice(1)}
+                value={formData[f]}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded"
+                required
+              />
             ))}
-            <button type="submit" className="bg-primary text-white px-6 py-2 rounded-lg">
+            <label className="flex items-center space-x-2">
+              <input
+                name="recent"
+                type="checkbox"
+                checked={formData.recent}
+                onChange={handleChange}
+              />
+              <span>Adhérent récent</span>
+            </label>
+            <button type="submit" className="w-full bg-primary text-white py-2 rounded">
               Enregistrer le membre
             </button>
           </form>
@@ -205,6 +225,4 @@ const Members = () => {
       </section>
     </div>
   );
-};
-
-export default Members;
+}
